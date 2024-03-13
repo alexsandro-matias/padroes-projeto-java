@@ -1,5 +1,4 @@
-# padroes-projeto-java
-Criando uma trilha para entender os principais padrões de projetos aplicados à linguagem Java
+# Singleton
 
 Esse padrão de projeto é utilizado quando se deseja criar um apenas uma instância da classe. Ele pode ser utilizado, por exemplo, em sistemas de login ou sistemas de segurança. 
 
