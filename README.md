@@ -12,3 +12,12 @@ No livro são abordados ao todo 23 padrões divididos em 3 categorias:
 Nesta minha trilha pessoal irei abordar os principais:
 
 - [Singleton](https://github.com/alexsandro-matias/padroes-projeto-java/tree/01-singleton)
+- [Factory Method]()
+- [Abstract Factory]()
+- [Adapter]()
+- [Composite]()
+- [Decorator]()
+- [Observer]()
+- [Strategy]()
+- [Template Method]()
+
