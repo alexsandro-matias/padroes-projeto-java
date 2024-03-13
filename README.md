@@ -1,33 +1,115 @@
 # Singleton
 
-Esse padrão de projeto é utilizado quando se deseja criar um apenas uma instância da classe. Ele pode ser utilizado, por exemplo, em sistemas de login ou sistemas de segurança. 
+Esse padrão de projeto é utilizado quando se deseja criar um apenas uma instância da classe. Ele pode ser utilizado,
+por exemplo, em sistemas de login ou sistemas de segurança. Para isso, ela terá um método para realizar o login.
+Neste caso, como ela estará disponível para toda aplicação, não faz sentido que hajam várias instâncias desta classe.
 
-Primeiramente, os atributos estáticos, ou seja, ele pertence à classe, e não ao objeto. Assim, 
-
-Construtor privado impede que elementos externos instaciem objetos do tipo Singleton, o que pode causar erro de compilação. Como somente haverá manipulação do construtor pela própria classe, precisamos de um atributo que também será estático 
-
+A classe ficará da seguinte forma inicialmente:
 
 ```java
+package designpatterns;
 
-package padroes;
+public class SecurityManager {
+    public void login() {
+        // Realiza login de alguma forma.
+    }
+}
+```
 
-public class Singleton {
-	private Singleton() {
-	}
+Porém desta forma, ainda é possível instanciar mais de um objeto deste ``SecurityManager``. O código abaixo compila
+normalmente.
 
-	private static Singleton instance;
+```java
+package designpatterns;
 
-	private static Singleton getSingleton() {
-		if (instance == null) {
-			instance = new Singleton();
-		}
-		return instance;
+public class App {
+    public static void main(String[] args) {
+        SecurityManager manager = new SecurityManager();
+        SecurityManager manager2 = new SecurityManager();
+    }
 
-	}
-
-	public void login() {
-
-	}
 
 }
 ```
+
+Então, se não houver esse cuidado, o objeto estará espalhado várias instâncias do objeto. O singleton atende justamente
+a esta demanda. Então a primeira coisa a ser feita é deixar o construtor como privado:
+
+```java
+private SecurityManager() {
+}
+```
+
+Neste momento, apenas a classe consegue maninpular o construtor, uma vez que ele é privado. Então, não é possível que
+elementos externos possam criar instâncias. Porém vem um questionamento, se elementos externos não podem instanciar
+objetos, quem pode ? *A própria classe*. Já como será a própria classe (e não ao objeto) que irá realizar essa
+manipulação, precisaremos de um atributo estático.
+
+```java
+private static SecurityManager instance;
+
+private SecurityManager() {
+}
+```
+
+Por convenção, o nome deste atributo se chama *instance*. Já para retornar esta instância única. Para isso, é necessário
+testar se já existe alguma instância da classe *SecurityManager*. Caso não exista, cria uma nova; caso contrário não
+faça nada.
+
+```java
+private static SecurityManager instance;
+
+private SecurityManager() {
+}
+
+public static SecurityManager getInstance() {
+    if (instance == null) {
+        instance = new SecurityManager();
+        System.out.println("Login realizado com sucesso");
+    }
+    return instance;
+
+}
+```
+
+Com essa implementação, para ser possível utilizar a classe SecurityManager é da seguinte forma:
+
+```java
+package designpatterns;
+
+public class App {
+    public static void main(String[] args) {
+        SecurityManager manager = SecurityManager.getInstance();
+        SecurityManager manager2 = SecurityManager.getInstance();
+    }
+}
+```
+
+Olhando o método *getInstance()* quando é chamado a primeira vez ele cria o objeto (já que ainda não objeto criado, ou
+seja, o valor do objeto é null). Já na segunda instância como o valor não é *null* não criação do objeto, ou pode ser
+considerado que está sendo retornado sempre o mesmo valor de instância. Assim,
+referência apontada para ambos objetos é a mesma. Isso pode ser provado se imprimirmos ambos objetos.
+
+```java
+public class App {
+    public static void main(String[] args) {
+        SecurityManager manager = SecurityManager.getInstance();
+        SecurityManager manager2 = SecurityManager.getInstance();
+
+        System.out.println(manager);
+        System.out.println(manager2);
+    }
+}
+```
+
+Teremos a seguinte saída:
+
+```
+Login realizado com sucesso
+designpatterns.SecurityManager@3ac3fd8b
+designpatterns.SecurityManager@3ac3fd8b
+```
+
+E sempre será usada essa instância única para qualquer parte do código seja alguma classe, pacote ou interface.
+
+Uma das vantagens dessa abordagem é a rápida implementação.

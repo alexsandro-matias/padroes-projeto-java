@@ -1,7 +1,9 @@
-package DesignPatterns;
+package designpatterns;
 
 
 public class SecurityManager {
+
+
     private static SecurityManager instance;
 
     private SecurityManager() {
@@ -17,10 +19,6 @@ public class SecurityManager {
     }
 
     public void login() {
-
-
-
-
 
     }
 
