@@ -1,7 +1,7 @@
 # Singleton
 
 Esse padrão de projeto é utilizado quando se deseja criar um apenas uma instância da classe. Ele pode ser utilizado,
-por exemplo, em sistemas de login ou sistemas de segurança. Para isso, ela terá um método para realizar o login.
+por exemplo, em sistemas de login ou sistemas de segurança, onde se torna interessante existir apenas uma instância de uma classe. Para isso, como por exemplo, ela terá um método para realizar o *login*.
 Neste caso, como ela estará disponível para toda aplicação, não faz sentido que hajam várias instâncias desta classe.
 
 A classe ficará da seguinte forma inicialmente:
@@ -27,13 +27,10 @@ public class App {
         SecurityManager manager = new SecurityManager();
         SecurityManager manager2 = new SecurityManager();
     }
-
-
 }
 ```
 
-Então, se não houver esse cuidado, o objeto estará espalhado várias instâncias do objeto. O singleton atende justamente
-a esta demanda. Então a primeira coisa a ser feita é deixar o construtor como privado:
+Então, se não houver esse cuidado, o código permitirá várias instâncias desta classe. O *Singleton* atende justamente a esta demanda. Então a primeira coisa a ser feita é deixar o construtor como privado:
 
 ```java
 private SecurityManager() {
