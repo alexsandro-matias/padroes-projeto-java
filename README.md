@@ -69,6 +69,10 @@ public static SecurityManager getInstance() {
 }
 ```
 
+Uma forma de representar essa implementação é através de diagrama de classes. Que pode ser representada na forma abaixo:
+
+<center><img src="img.png" alt="">)</center>
+
 Com essa implementação, para ser possível utilizar a classe SecurityManager é da seguinte forma:
 
 ```java
