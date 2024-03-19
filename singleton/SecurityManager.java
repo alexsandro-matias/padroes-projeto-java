@@ -1,4 +1,4 @@
-package designpatterns;
+package singleton;
 
 
 public class SecurityManager {
