@@ -1,0 +1,9 @@
+@startuml
+class SecurityManager {
+- {static} SecurityManager instance
+- SecurityManager()
++ {static} SecurityManager getInstance()
+}
+
+
+@enduml
