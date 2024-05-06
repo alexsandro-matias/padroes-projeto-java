@@ -1,4 +1,4 @@
-package designpatterns;
+package exemplos.abstractmethod;
 
 public class HTML implements Documento {
     @Override
