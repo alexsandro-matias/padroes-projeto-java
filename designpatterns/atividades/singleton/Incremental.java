@@ -10,7 +10,7 @@ class Incremental
 	// numero = ++count;
 	// }
 	//
-	// public String toString() {
+	// public String toString()] {
 	// return " Incremental " + numero;
 	// }}
 	//
