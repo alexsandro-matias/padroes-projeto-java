@@ -1,4 +1,4 @@
-package atividades.singleton;
+package questao13;
 
 class Incremental
 {

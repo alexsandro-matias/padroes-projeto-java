@@ -1,4 +1,4 @@
-package atividades.templatemethod;
+package questao16;
 
 public abstract class StringGenerica {
 	protected String textoInicial;

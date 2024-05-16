@@ -1,4 +1,4 @@
-package atividades.strategy;
+package questao02;
 
 public class App
 {

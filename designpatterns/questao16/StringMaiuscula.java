@@ -1,4 +1,4 @@
-package atividades.templatemethod;
+package questao16;
 
 public class StringMaiuscula extends StringGenerica {
 
