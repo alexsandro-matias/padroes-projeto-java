@@ -1,5 +1,6 @@
 package questao10;
 
+
 // Escreva um programa que conte até 10 e envie os números para uma ferramenta
 // de log. Esta
 // ferramenta de log deve ser construída por uma fábrica. Utilize Factory Method
