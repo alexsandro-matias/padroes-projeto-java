@@ -15,10 +15,12 @@ public class App
 		EstrategiaOrdenacao estrategia2 = new Insercao();
 		// EstrategiaOrdenacao estrategia3 = new Merge();
 		int[] vetor = estrategia.criaVetorAleatorio(5);
+		int[] vetorCopiado = new int[vetor.length];
+		System.arraycopy(vetor, 0, vetorCopiado, 0, vetor.length);
 		// int[] resultado = estrategia.ordenacaoVetor(vetorQualquer);
 		long tempoExecucao = estrategia.calculaTempoDeExecucao(vetor);
 		System.out.println("Tempo de execução: " + tempoExecucao);
-		long tempoExecucao2 = estrategia2.calculaTempoDeExecucao(vetor);
+		long tempoExecucao2 = estrategia2.calculaTempoDeExecucao(vetorCopiado);
 		System.out.println("Tempo de execução: " + tempoExecucao2);
 		// long tempoExecucao3 = estrategia3.calculaTempoDeExecucao(vetor);
 		// System.out.println("Tempo de execução: " + tempoExecucao3);

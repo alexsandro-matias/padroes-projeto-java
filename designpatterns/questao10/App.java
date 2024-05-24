@@ -1,6 +1,5 @@
 package questao10;
 
-
 // Escreva um programa que conte até 10 e envie os números para uma ferramenta
 // de log. Esta
 // ferramenta de log deve ser construída por uma fábrica. Utilize Factory Method
@@ -9,3 +8,10 @@ package questao10;
 // console. A escolha deve
 // ser por um parâmetro passado ao programa (“arquivo” ou “console”).
 // public class App
+public class App
+{
+	public static void main(String[] args)
+	{
+		FabricadorDeLog log = new FabricadorDeLog("arquivo");
+	}
+}

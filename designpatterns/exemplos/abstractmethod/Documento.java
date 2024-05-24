@@ -1,5 +1,4 @@
 package exemplos.abstractmethod;
 
-public interface Documento {
-    void imprimir();
-}
+public interface Documento
+{ void imprimir(); }
