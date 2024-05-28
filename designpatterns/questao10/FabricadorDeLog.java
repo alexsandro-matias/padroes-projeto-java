@@ -9,13 +9,12 @@ public class FabricadorDeLog
 		tipoDoLog = tipo.toLowerCase();
 	}
 	
-	
-	
 	public FabricadorDeLog criarLog()
 	{
 		if (this.tipoDoLog.contains("arquivo"))
 		{
 			new GeradorArquivo();
 		}
+		return null;
 	}
 }
