@@ -13,7 +13,7 @@ public class FabricadorDeLog
 	{
 		if (this.tipoDoLog.contains("arquivo"))
 		{
-			new GeradorArquivo();
+//			new GeradorArquivo();
 		}
 		return null;
 	}

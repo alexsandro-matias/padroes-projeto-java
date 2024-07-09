@@ -28,6 +28,8 @@ public abstract class OrdenacaoGenerica implements EstrategiaOrdenacao {
 
     }
 
+
+
     protected abstract void executaEstrategiaOrdenacao();
 
 }

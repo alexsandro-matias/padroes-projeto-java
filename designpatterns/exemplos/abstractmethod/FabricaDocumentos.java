@@ -4,7 +4,7 @@ public class FabricaDocumentos
 {
 	public Documento criarDocumento(String tipo)
 	{
-		if (tipo.equals("pdf"))
+		if (tipo.equals("pdf".toUpperCase()))
 		{
 			return new PDF();
 		}

@@ -1,4 +1,4 @@
 package questao10;
 
-public class GeradorArquivo implements Fabr
-{}
+//public class GeradorArquivo implements Fabr
+//{}
