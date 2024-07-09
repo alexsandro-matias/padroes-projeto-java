@@ -8,10 +8,8 @@ package questao10;
 // console. A escolha deve
 // ser por um parâmetro passado ao programa (“arquivo” ou “console”).
 // public class App
-public class App
-{
-	public static void main(String[] args)
-	{
-		FabricadorDeLog log = new FabricadorDeLog("arquivo");
-	}
+public class App {
+    public static void main(String[] args) {
+        FabricadorDeLog log = new FabricadorDeLog("arquivo");
+    }
 }
