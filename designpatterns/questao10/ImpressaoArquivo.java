@@ -1,11 +1,13 @@
 package questao10;
 
 
-public class ImpressaoArquivo implements  GeradorLog{
+import java.util.ArrayList;
+
+public class ImpressaoArquivo implements  GeradorLog {
 
 
     @Override
-    public String imprimirLog() {
-        return "";
+    public void imprimirLog(ArrayList<Integer> numeros) {
+
     }
 }

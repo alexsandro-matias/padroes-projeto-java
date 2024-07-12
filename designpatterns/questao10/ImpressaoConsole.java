@@ -1,13 +1,16 @@
 package questao10;
 
-import java.io.File;
+import java.util.ArrayList;
 
-public class ImpressaoConsole implements GeradorLog{
+public class ImpressaoConsole implements GeradorLog {
 
-    @Override
-    public String imprimirLog() {
-        int[] numeros = GeradorLog.contaAte10();
 
-        return "";
+    GeradorLog impressao=  new ImpressaoConsole();
+
+
+
+
+    public void imprimirLog(ArrayList<Integer> numeros) {
+
     }
 }

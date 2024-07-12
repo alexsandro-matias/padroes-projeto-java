@@ -9,8 +9,8 @@ package questao10;
 // public class App
 public class App {
     public static void main(String[] args) {
-        FabricarDeLog arquivo = new FabricarDeLog("arquivo");
-        FabricarDeLog console = new FabricarDeLog("console");
+        GeradorLog console = new FabricarDeLog();
+
 
 
 

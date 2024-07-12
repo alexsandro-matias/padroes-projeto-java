@@ -1,8 +1,8 @@
 package questao10;
 
-public class FabricarDeLog {
+import java.util.ArrayList;
 
-
+public class FabricarDeLog implements GeradorLog {
 
 
     public GeradorLog FabricarDeLog(String tipo) {
@@ -10,8 +10,17 @@ public class FabricarDeLog {
 
             return new ImpressaoConsole();
 
+        } else if (tipo.equalsIgnoreCase("arquivo")) {
+            return new ImpressaoArquivo();
+
         }
+
+        return null;
     }
 
 
+    @Override
+    public void imprimirLog(ArrayList<Integer> numeros) {
+
+    }
 }
