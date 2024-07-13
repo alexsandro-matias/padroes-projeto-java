@@ -9,9 +9,10 @@ package questao10;
 // public class App
 public class App {
     public static void main(String[] args) {
-        GeradorLog console = new FabricarDeLog();
 
 
+         InterfaceGeradorLog console = new ConcretaImpressaoPeloConsole();
+         console.imprimirLog();
 
 
     }
