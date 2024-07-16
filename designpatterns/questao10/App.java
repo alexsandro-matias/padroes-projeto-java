@@ -10,10 +10,14 @@ package questao10;
 public class App {
     public static void main(String[] args) {
 
+        int opcao = ShowMenu.menu();
 
-         InterfaceGeradorLog console = new ConcretaImpressaoPeloConsole();
-         console.imprimirLog();
+        ArquivoDelogFactory.gerarLog(opcao).imprimirLog();
 
 
     }
+
+
 }
+
+
