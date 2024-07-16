@@ -12,7 +12,7 @@ public class App {
 
         int opcao = ShowMenu.menu();
 
-        ArquivoDelogFactory.gerarLog(opcao).imprimirLog();
+        ArquivoDelogFactory.gerarObjetoConcreto(opcao).imprimirLog();
 
 
     }

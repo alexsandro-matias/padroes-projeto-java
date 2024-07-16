@@ -2,7 +2,7 @@ package questao10;
 
 public class ArquivoDelogFactory {
 
-    public static InterfaceArquivoLog gerarLog(Integer opcao) {
+    public static InterfaceArquivoLog gerarObjetoConcreto(Integer opcao) {
         if (opcao == 1) {
             return new ConcreteFactoryConsole();
         } else if (opcao == 2) {

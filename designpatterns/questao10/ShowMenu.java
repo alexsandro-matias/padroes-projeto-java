@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class ShowMenu {
 
-    public static int  menu(){
+    public static int menu() {
         System.out.println("====================================================================");
         System.out.println("=============== Escolha uma das opções abaixo ======================");
         System.out.println("1 - console".toUpperCase());

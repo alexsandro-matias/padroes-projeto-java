@@ -7,15 +7,12 @@ public interface InterfaceArquivoLog {
     ArrayList<Integer> conjuntoDeNumeros = new ArrayList<>();
 
     static ArrayList<Integer> criarConjuntoDeNumeros() {
-        for (int i = 1; i <= 11; i++) {
+        for (int i = 1; i <= 10; i++) {
             conjuntoDeNumeros.add(i);
         }
         return conjuntoDeNumeros;
 
     }
-
-
-
 
 
     void imprimirLog();
