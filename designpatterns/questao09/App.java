@@ -18,7 +18,6 @@ usuário informar a senha “designpatterns” como parâmetro para o programa, 
 a informação e exibi-la na tela.
 */
 
-import java.util.Objects;
 import java.util.Scanner;
 
 public class App {
@@ -30,8 +29,10 @@ public class App {
         System.out.println("Digite a senha secreta");
         String senhaDigitada = leitura.nextLine();
 
-        Factory.createArquivo(senhaDigitada);
+        ArquivoAberto arquivo = Factory.createArquivo(senhaDigitada);
+        String conteudoArquivo = arquivo.lerArquivoDeTexto();
 
+        System.out.println(conteudoArquivo);
 
 
         leitura.close();

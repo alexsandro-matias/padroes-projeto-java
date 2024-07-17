@@ -9,15 +9,14 @@ public class ArquivoConfidencial implements ArquivoAberto {
     String textoFinal;
 
 
-    public ArquivoConfidencial() {
 
-        textoFinal = lerArquivoDeTexto();
-    }
+
+
 
     @Override
     public String lerArquivoDeTexto() {
         try {
-            conteudo = Files.readString(Paths.get("designpatterns/questao09/confidencial.txt"));
+            conteudo = Files.readString(Paths.get("questao09/confidencial.txt"));
             return "Senha confidencial: " + conteudo;
 
         } catch (IOException e) {

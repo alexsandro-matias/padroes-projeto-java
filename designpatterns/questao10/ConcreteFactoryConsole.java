@@ -10,8 +10,8 @@ public class ConcreteFactoryConsole implements InterfaceArquivoLog {
 
         ArrayList<Integer> conjuntoDeNumeros = InterfaceArquivoLog.criarConjuntoDeNumeros();
 
-        for (Integer conjuntoDeNumero : conjuntoDeNumeros) {
-            System.out.println(conjuntoDeNumero);
+        for (Integer cadaNumero : conjuntoDeNumeros) {
+            System.out.println(cadaNumero);
         }
 
     }

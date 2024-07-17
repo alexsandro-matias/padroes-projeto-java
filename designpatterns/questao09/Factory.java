@@ -1,20 +1,19 @@
 package questao09;
 
-import java.util.Objects;
-
 public class Factory {
 
-    private static String senha = "padroes";
+    private static final String senha = "padroes";
 
-    public static ArquivoAberto createArquivo(String senhaDigitada)
-    {
-        if (Objects.equals(senhaDigitada, senha)) {
+    private ArquivoAberto tipoAberturaArquivo;
 
+    public static ArquivoAberto createArquivo(String senhaDigitada) {
+
+
+        if (senha.equals(senhaDigitada)) {
             return new ArquivoConfidencial();
-
-
         }
-        return  new ArquivoPublico();
+
+        return new ArquivoPublico();
 
     }
 }

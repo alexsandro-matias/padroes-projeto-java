@@ -1,8 +1,6 @@
 package questao10;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 
 public class ConcreteFactoryArquivo implements InterfaceArquivoLog {
@@ -15,6 +13,7 @@ public class ConcreteFactoryArquivo implements InterfaceArquivoLog {
 
         ArrayList<Integer> conjuntoDeNumeros = InterfaceArquivoLog.criarConjuntoDeNumeros();
 
+        boolean temConteudo = true;
         // Cria um StringBuilder para armazenar a contagem
         StringBuilder conteudo = new StringBuilder();
 
@@ -29,6 +28,22 @@ public class ConcreteFactoryArquivo implements InterfaceArquivoLog {
             System.out.println("Contagem salva em " + nomeArquivo);
         } catch (IOException e) {
             System.err.println("Erro ao escrever no arquivo: " + e.getMessage());
+        }
+
+        try {
+            FileReader leitorArquivo = new FileReader("log.txt");
+            BufferedReader bufferedReader = new BufferedReader(leitorArquivo);
+            while (temConteudo) {
+                String linha = bufferedReader.readLine();
+                if (linha != null) {
+                    System.out.println(linha);
+                } else {
+                    break;
+                }
+            }
+        } catch (IOException e) {
+
+            throw new RuntimeException(e.getMessage());
         }
 
     }
