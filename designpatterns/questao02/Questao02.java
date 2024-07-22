@@ -1,6 +1,6 @@
 package questao02;
 
-public class App {
+public class Questao02 {
     public static void main(String[] args) {
         // criar um vetor enorme com 1_000_000 de elementos e medir o tempo de
         // execução
