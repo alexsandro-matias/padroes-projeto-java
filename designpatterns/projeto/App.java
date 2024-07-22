@@ -9,8 +9,12 @@ package projeto;
 public class App {
     public static void main(String[] args) {
 
-        Computador memoria = new Computador.ComputadorBuilder().gabinete("Topada").memoria("DDR4").build();
-        System.out.println(memoria);
+//        Computador pc = new Computador.ComputadorBuilder().gabinete("Topada").memoria("DDR4").build();
+//        System.out.println(pc);
+
+        CotacaoDollar cotacao = new CotacaoDollar();
+        System.out.println(cotacao.retornaCotacaoDeRealParaDollar());
+
 
     }
 }

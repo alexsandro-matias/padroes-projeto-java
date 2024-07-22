@@ -1,5 +1,8 @@
 package projeto;
 
+
+
+
 public class Computador {
     private final String gabinete;
     private final String processador;
@@ -33,6 +36,7 @@ public class Computador {
         private String mouse;
         private String teclado;
         private String monitor;
+        private long price;
 
 
         public ComputadorBuilder gabinete(String gabinete) {
@@ -65,8 +69,9 @@ public class Computador {
             return this;
         }
 
-        public ComputadorBuilder monitor(String monitor) {
+        public ComputadorBuilder monitor(Peca peca) {
             this.mouse = monitor;
+            this.price += peca.getPrice();
             return this;
         }
 
