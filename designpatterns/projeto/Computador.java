@@ -1,8 +1,6 @@
 package projeto;
 
 
-
-
 public class Computador {
     private final String gabinete;
     private final String processador;
