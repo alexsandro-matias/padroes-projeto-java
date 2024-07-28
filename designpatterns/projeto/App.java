@@ -9,11 +9,17 @@ package projeto;
 public class App {
     public static void main(String[] args) {
 
-//        Computador pc = new Computador.ComputadorBuilder().gabinete("Topada").memoria("DDR4").build();
-//        System.out.println(pc);
+        Computador pc = new Computador
+                .ComputadorBuilder()
+                .hd("SSD de 256GB")
+                .mouse("Blitzwolf sem fio")
+                .monitor("AOC 16").build();
+        System.out.println(pc);
 
-        CotacaoDollar cotacao = new CotacaoDollar();
-        System.out.println(cotacao.retornaCotacaoDeRealParaDollar());
+
+
+        //        CotacaoDollar cotacao = new CotacaoDollar();
+        //        System.out.println(cotacao.retornaCotacaoDeRealParaDollar());
 
 
     }

@@ -67,11 +67,11 @@ public class Computador {
             return this;
         }
 
-        public ComputadorBuilder monitor(Peca peca) {
-            this.mouse = monitor;
-            this.price += peca.getPrice();
+        public ComputadorBuilder monitor(String monitor) {
+            this.monitor = monitor;
             return this;
         }
+
 
         public Computador build() {
             return new Computador(gabinete, processador, memoria, hd, mouse, teclado, monitor);
