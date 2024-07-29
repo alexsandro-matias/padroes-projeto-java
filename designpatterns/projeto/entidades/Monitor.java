@@ -1,9 +1,7 @@
 package projeto.entidades;
 
 
-public class Monitor implements Peca {
-    private String name = "Monitor HP 19287319";
-    private String brand;
+public class Monitor extends Peca {
 
 
 

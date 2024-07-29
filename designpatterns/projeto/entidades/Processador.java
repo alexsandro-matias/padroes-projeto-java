@@ -1,4 +1,8 @@
 package projeto.entidades;
 
-public class Processador {
+public class Processador extends Peca {
+    @Override
+    long getPrice() {
+        return 0;
+    }
 }

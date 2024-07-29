@@ -1,5 +1,8 @@
 package projeto;
 
+import projeto.servicos.CotacaoDollar;
+import projeto.servicos.PagamentoStrategy;
+
 /****
  * Coisas necessárias:
  * 1. TODO - cotação do Dollar
@@ -9,17 +12,10 @@ package projeto;
 public class App {
     public static void main(String[] args) {
 
-        Computador pc = new Computador
-                .ComputadorBuilder()
-                .hd("SSD de 256GB")
-                .mouse("Blitzwolf sem fio")
-                .monitor("AOC 16").build();
-        System.out.println(pc);
+        PagamentoStrategy pagamento = new PagamentoDollar();
+        pagamento.executarPagamento(100);
 
 
-
-        //        CotacaoDollar cotacao = new CotacaoDollar();
-        //        System.out.println(cotacao.retornaCotacaoDeRealParaDollar());
 
 
     }

@@ -1,4 +1,8 @@
 package projeto.entidades;
 
-public class Teclado {
+public class Teclado extends Peca {
+    @Override
+    long getPrice() {
+        return 0;
+    }
 }
