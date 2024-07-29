@@ -1,4 +1,4 @@
-package projeto;
+package projeto.servicos;
 
 import org.json.JSONObject;
 
@@ -9,13 +9,10 @@ import java.net.URL;
 
 public class CotacaoDollar {
 
-    private static final String API_KEY = "Y00b230ad1dd1fd9e956184fb"; // Substitua com sua chave da API
     private static final String API_URL = "https://v6.exchangerate-api.com/v6/00b230ad1dd1fd9e956184fb/latest/USD";
-//    private static final String API_URL = "https://v6.exchangerate-api.com/v6/" + API_KEY + "/latest/USD";
 
     public double retornaCotacaoDeRealParaDollar() {
         try {
-            // Cria a URL para a solicitação
             URL url = new URL(API_URL);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
@@ -38,8 +35,7 @@ public class CotacaoDollar {
                 JSONObject rates = jsonResponse.getJSONObject("conversion_rates");
 
                 // Exemplo para pegar a cotação do euro
-                double dollarParaReal = rates.getDouble("BRL");
-                return dollarParaReal;
+                return rates.getDouble("BRL");
 
             } else {
                 System.out.println("Falha na requisição GET");

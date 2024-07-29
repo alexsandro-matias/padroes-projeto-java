@@ -1,4 +1,4 @@
-package projeto;
+package projeto.servicos;
 
 /**
  * 1 - pagamento com cartão de crédito;
