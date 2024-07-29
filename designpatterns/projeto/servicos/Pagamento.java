@@ -7,7 +7,7 @@ package projeto.servicos;
  * 4 - Pagamento por dollar
  * */
 
-//public class Pagamento {
+public class Pagamento {}
 //    //depois vai receber o objeto Pedido
 //    void executarPagamento(String tipoPagamento, double valorPedido, double valorPagamento) {
 //        if (tipoPagamento.equals("real")) {
