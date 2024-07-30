@@ -7,7 +7,7 @@ public class Endereco {
     private final String municipio;
     private final String uf;
 
-    public Endereco(String rua, String numero, String bairro, String uf, String municipio) {
+    private Endereco(String rua, String numero, String bairro, String uf, String municipio) {
         this.rua = rua;
         this.numero = numero;
         this.bairro = bairro;
@@ -15,6 +15,10 @@ public class Endereco {
         this.uf = uf;
     }
 
+    @Override
+    public String toString() {
+        return "{" + "rua='" + rua + '\'' + ", numero='" + numero + '\'' + ", bairro='" + bairro + '\'' + ", municipio='" + municipio + '\'' + ", uf='" + uf + '\'' + '}';
+    }
 
     public static class EnderecoBuilder {
 
