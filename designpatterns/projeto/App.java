@@ -1,6 +1,5 @@
 package projeto;
 
-import projeto.servicos.CotacaoDollar;
 import projeto.servicos.PagamentoStrategy;
 
 /****
@@ -12,11 +11,9 @@ import projeto.servicos.PagamentoStrategy;
 public class App {
     public static void main(String[] args) {
 
-        PagamentoStrategy pagamento = new PagamentoDollar();
-        pagamento.executarPagamento(100);
-
-
-
+        Carrinho carrinho = new Carrinho();
+        PagamentoStrategy dollar = new PagamentoDollar();
+        carrinho.pagar(dollar, 10);
 
     }
 }

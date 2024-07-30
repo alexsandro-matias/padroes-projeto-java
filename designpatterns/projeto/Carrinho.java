@@ -1,9 +1,10 @@
 package projeto;
 
-import projeto.entidades.Computador;
+import projeto.servicos.PagamentoStrategy;
 
 public class Carrinho {
 
-    private Computador computador;
-    private FormaDePagamento pagamento;
+    public void pagar(PagamentoStrategy estrategiaPagamento, double valorPago) {
+        estrategiaPagamento.executarPagamento(valorPago);
+    }
 }

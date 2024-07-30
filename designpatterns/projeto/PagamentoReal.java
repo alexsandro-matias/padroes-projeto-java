@@ -8,7 +8,9 @@ public class PagamentoReal implements PagamentoStrategy {
 
     @Override
     public void executarPagamento(double valorPagamento) {
-    double cotacao = new CotacaoDollar().retornaCotacaoDeRealParaDollar();
-        System.out.println(cotacao);
+//        double cotacao = new CotacaoDollar().retornaCotacaoDeRealParaDollar();
+        System.out.println("Pagamento em Real");
+
+
     }
 }
