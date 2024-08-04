@@ -8,8 +8,7 @@ public class StringInvertida extends StringGenerica {
 
 	@Override
 	public String tranformarString() {
-		String stringTranformada = new StringBuilder(this.textoInicial).reverse().toString();
-		return stringTranformada;
+		return new StringBuilder(this.textoInicial).reverse().toString();
 	}
 
 }

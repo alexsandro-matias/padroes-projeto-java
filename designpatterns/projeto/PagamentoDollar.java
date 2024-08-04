@@ -7,8 +7,5 @@ public class PagamentoDollar implements PagamentoStrategy {
     public void executarPagamento(double valorPagamento) {
         System.out.println("Pagamento em DOllar");
 
-
-
-
     }
 }

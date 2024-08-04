@@ -1,5 +1,7 @@
 package questao01;
 
+import java.time.DayOfWeek;
+
 public interface DiaDaSemanaStrategy {
-    int retonarDiaDaSemana(String diaDaSemanaDigitado);
+    DayOfWeek retonarDiaDaSemana(int dia);
 }
