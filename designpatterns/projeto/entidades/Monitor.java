@@ -4,11 +4,13 @@ package projeto.entidades;
 public class Monitor extends Peca {
 
 
+    @Override
+    long getValor() {
+        return 0;
+    }
 
     @Override
-    public long getPrice() {
-        return 1231231;
-
-
+    String getDescricao() {
+        return "";
     }
 }
