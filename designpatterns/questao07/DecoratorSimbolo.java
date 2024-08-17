@@ -1,12 +1,15 @@
 package questao07;
 
-public abstract class DecoratorSimbolo implements Simbolo {
+public abstract class DecoratorSimbolo implements FormatacaoTexto {
 
-    protected String caracter;
+    protected String simboloAntes, simboloDepois;
+    protected FormatacaoTexto formatacaoTexto;
 
-    public DecoratorSimbolo(Simbolo simbolo) {
-        this.caracter = simbolo.toString();
+    protected DecoratorSimbolo(FormatacaoTexto formatacaoTexto) {
+        this.formatacaoTexto = formatacaoTexto;
     }
 
-
+    public String toString(String texto) {
+        return simboloAntes + texto + simboloDepois;
+    }
 }

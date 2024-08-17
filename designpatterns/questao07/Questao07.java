@@ -4,13 +4,18 @@ package questao07;
 Implemente decoradores para colocar parênteses, colchetes e chaves ao redor do número (ex.: “1”).
 Combine-os de diversas formas.*/
 
-import java.lang.reflect.ParameterizedType;
-
 public class Questao07 {
     public static void main(String[] args) {
 
-       Simbolo simbolo = new Parenteses();
-       Simbolo simbolo2 = new Chaves(simbolo);
+        FormatacaoTexto primeiro = new Chaves();
+        String a = primeiro.toString("A");
+        System.out.println(a);
+
+        primeiro = new Parenteses();
+
+        String b = primeiro.toString("b");
+        System.out.println(b);
+
 
     }
 }

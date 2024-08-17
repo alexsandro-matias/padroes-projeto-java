@@ -1,12 +1,19 @@
 package questao07;
 
 public class Chaves extends DecoratorSimbolo{
-    public Chaves() {
+
+    public Chaves(FormatacaoTexto simbolo) {
         super(simbolo);
+
     }
 
+    protected Chaves() {
+        this();
+        this.simboloAntes = "{ ";
+        this.simboloDepois = " }";
+    }
 
     public String toString(String texto) {
-        return "{ " + caracter + " }";
+        return super.toString(texto);
     }
 }

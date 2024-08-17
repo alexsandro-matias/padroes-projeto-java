@@ -1,6 +1,8 @@
 package questao07;
 
-public interface Simbolo {
+public interface FormatacaoTexto {
+    
+
 
 
     public String toString(String texto);

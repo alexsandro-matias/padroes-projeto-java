@@ -1,14 +1,15 @@
 package questao07;
 
-public class Parenteses extends DecoratorSimbolo{
+public class Parenteses extends DecoratorSimbolo {
 
-
-    public Parenteses() {
-        super(simbolo);
+    public Parenteses(FormatacaoTexto formatador) {
+        super(formatador);
+        this.simboloAntes = "( ";
+        this.simboloDepois = " )";
     }
 
     @Override
     public String toString(String texto) {
-        return "(" + caracter + " )";
+        return super.toString(texto);
     }
 }
