@@ -1,0 +1,38 @@
+@startuml
+abstract class DecoratorSimbolo {
+# String simboloAntes
+# TextoGenerico textoGenerico
++ String toString()
+}
+
+
+class Texto {
+- String texto
++ void setTexto(String)
++ String toString()
+}
+
+
+class DecoratorParenteses {
++ String toString()
+}
+
+class DecoratorChaves {
++ String toString()
+}
+
+class Questao07 {
++ {static} void main(String[])
+}
+
+interface TextoGenerico {
++ String toString()
+}
+
+
+
+TextoGenerico <|.. DecoratorSimbolo
+TextoGenerico <|.. Texto
+DecoratorSimbolo <|-- DecoratorParenteses
+DecoratorSimbolo <|-- DecoratorChaves
+@enduml

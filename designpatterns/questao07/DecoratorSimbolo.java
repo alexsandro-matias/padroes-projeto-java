@@ -1,15 +1,16 @@
 package questao07;
 
-public abstract class DecoratorSimbolo implements FormatacaoTexto {
+public abstract class DecoratorSimbolo implements TextoGenerico {
 
     protected String simboloAntes, simboloDepois;
-    protected FormatacaoTexto formatacaoTexto;
+    protected TextoGenerico textoGenerico;
+    protected Texto texto;
 
-    protected DecoratorSimbolo(FormatacaoTexto formatacaoTexto) {
-        this.formatacaoTexto = formatacaoTexto;
+    protected DecoratorSimbolo(TextoGenerico textoGenerico) {
+        this.textoGenerico = textoGenerico;
     }
 
-    public String toString(String texto) {
-        return simboloAntes + texto + simboloDepois;
+    public String toString() {
+        return simboloAntes + texto.getTexto() + simboloDepois;
     }
 }

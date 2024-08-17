@@ -7,14 +7,22 @@ Combine-os de diversas formas.*/
 public class Questao07 {
     public static void main(String[] args) {
 
-        FormatacaoTexto primeiro = new Chaves();
-        String a = primeiro.toString("A");
-        System.out.println(a);
+        Texto textoDecorado = new Texto();
+        textoDecorado.setTexto("a");
 
-        primeiro = new Parenteses();
+        TextoGenerico outroTextoDecorado = new DecoratorParenteses(textoDecorado);
 
-        String b = primeiro.toString("b");
-        System.out.println(b);
+        System.out.println(outroTextoDecorado);
+
+
+//
+//        TextoGenerico primeiro = new DecoratorChaves();
+//        String a = primeiro.toString("A");
+//        System.out.println(a);
+//
+//        DecoratorParenteses segundo = new DecoratorParenteses(primeiro);
+//
+//        System.out.println(segundo);
 
 
     }
