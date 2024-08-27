@@ -13,4 +13,9 @@ public class Monitor extends Peca {
     String getDescricao() {
         return "";
     }
+
+    @Override
+    String getMarca() {
+        return "";
+    }
 }

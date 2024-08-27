@@ -1,7 +1,10 @@
 package projeto.entidades;
 
 
-public class Computador {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Computador extends Peca {
     private final Gabinete gabinete;
     private final Processador processador;
     private final Memoria memoria;
@@ -9,6 +12,7 @@ public class Computador {
     private final Mouse mouse;
     private final Teclado teclado;
     private final Monitor monitor;
+    private List<Peca> computadorMontado = new ArrayList<Peca>();
 
 
     private Computador(Gabinete gabinete, Processador processador, Memoria memoria, Hd hd,
@@ -25,6 +29,21 @@ public class Computador {
     @Override
     public String toString() {
         return "Computador{" + "gabinete='" + gabinete + '\'' + ", processador='" + processador + '\'' + ", memoria='" + memoria + '\'' + ", hd='" + hd + '\'' + ", mouse='" + mouse + '\'' + ", teclado='" + teclado + '\'' + ", monitor='" + monitor + '\'' + '}';
+    }
+
+    @Override
+    long getValor() {
+        return 0;
+    }
+
+    @Override
+    String getDescricao() {
+        return "";
+    }
+
+    @Override
+    String getMarca() {
+        return "";
     }
 
     public static class ComputadorBuilder {
@@ -68,8 +87,15 @@ public class Computador {
         }
 
 
+
+
         public Computador build() {
             return new Computador(gabinete, processador, memoria, hd, mouse, teclado, monitor);
+        }
+
+        public void adicionarPeca(Peca peca)
+        {
+
         }
 
 

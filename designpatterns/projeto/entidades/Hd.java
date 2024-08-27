@@ -11,4 +11,9 @@ public class Hd extends Peca{
     String getDescricao() {
         return "";
     }
+
+    @Override
+    String getMarca() {
+        return "";
+    }
 }

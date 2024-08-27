@@ -7,10 +7,9 @@ Combine-os de diversas formas.*/
 public class Questao07 {
     public static void main(String[] args) {
 
-        Texto textoDecorado = new Texto();
-        textoDecorado.setTexto("a");
+        Texto textoDecorado = new Texto("a");
 
-        TextoGenerico outroTextoDecorado = new DecoratorParenteses(textoDecorado);
+        DecoratorSimbolo outroTextoDecorado = new DecoratorParenteses(textoDecorado);
 
         System.out.println(outroTextoDecorado);
 

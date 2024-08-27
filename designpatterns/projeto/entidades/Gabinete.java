@@ -12,4 +12,9 @@ public class Gabinete extends Peca {
     String getDescricao() {
         return "";
     }
+
+    @Override
+    String getMarca() {
+        return "";
+    }
 }

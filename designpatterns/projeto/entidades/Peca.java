@@ -17,5 +17,5 @@ public abstract class Peca {
 
     abstract String getDescricao();
 
-//    abstract String getMarca();
+    abstract String getMarca();
 }

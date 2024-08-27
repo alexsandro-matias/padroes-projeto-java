@@ -10,4 +10,9 @@ public class Memoria extends Peca {
     String getDescricao() {
         return "";
     }
+
+    @Override
+    String getMarca() {
+        return "";
+    }
 }

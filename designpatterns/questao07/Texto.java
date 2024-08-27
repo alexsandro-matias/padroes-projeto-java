@@ -2,11 +2,12 @@ package questao07;
 
 public class Texto implements TextoGenerico {
 
-  private String texto;
+    private final String texto;
 
-    public void setTexto(String texto) {
+    public Texto(String texto) {
         this.texto = texto;
     }
+
 
     public String getTexto() {
         return texto;
