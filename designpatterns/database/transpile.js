@@ -17,7 +17,7 @@ function transpile({raw, result}) {
     id: product.id,
     name: product.title,
     description: product.description,
-    price: product.price * 100,
+    price: Math.round(product.price * 100),
     image: product.photos.g[0]
   }))
 
