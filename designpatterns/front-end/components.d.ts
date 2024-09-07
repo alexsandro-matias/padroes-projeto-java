@@ -7,6 +7,11 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    ComputadorPeca: typeof import('./src/components/ComputadorPeca.vue')['default']
+    EtapaPecas: typeof import('./src/components/EtapaPecas.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    PecaItem: typeof import('./src/components/PecaItem.vue')['default']
+    PecaLista: typeof import('./src/components/PecaLista.vue')['default']
+    PItem: typeof import('./src/components/PItem.vue')['default']
   }
 }
