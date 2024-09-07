@@ -1,16 +1,18 @@
 package com.example.api.entidades;
 
 public class Computador {
-    private Gabinete gabinete;
-    private Processador processador;
-    private Memoria memoria;
-    private Armazenamento armazenamento;
-    private PlacaMae placaMae;
-    private PlacaVideo placaVideo;
-    private Fonte fonte;
+    private final Gabinete gabinete;
+    private final Processador processador;
+    private final Memoria memoria;
+    private final Armazenamento armazenamento;
+    private final PlacaMae placaMae;
+    private final PlacaVideo placaVideo;
+    private final Fonte fonte;
 
+//    public Computador() {
+//    }
 
-    private Computador (
+    public Computador (
             Gabinete gabinete,
             Processador processador,
             Memoria memoria,
@@ -29,7 +31,31 @@ public class Computador {
         this.fonte = fonte;
     }
 
-//    public void adicionarPeca(Peca peca) {
-//
-//    }
+    public Gabinete getGabinete() {
+        return gabinete;
+    }
+
+    public Processador getProcessador() {
+        return processador;
+    }
+
+    public Memoria getMemoria() {
+        return memoria;
+    }
+
+    public Armazenamento getArmazenamento() {
+        return armazenamento;
+    }
+
+    public PlacaMae getPlacaMae() {
+        return placaMae;
+    }
+
+    public PlacaVideo getPlacaVideo() {
+        return placaVideo;
+    }
+
+    public Fonte getFonte() {
+        return fonte;
+    }
 }

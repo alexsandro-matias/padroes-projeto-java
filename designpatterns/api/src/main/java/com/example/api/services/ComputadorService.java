@@ -1,19 +1,26 @@
 package com.example.api.services;
 
-import com.example.api.entidades.Computador;
-import com.example.api.entidades.ComputadorBuilder;
+import com.example.api.entidades.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ComputadorService {
-    private Computador computador;
     private ComputadorBuilder builder;
 
-//    TODO: analisar se faz sentido ter o computador ou o builder no construtor
-    public ComputadorService(Computador computador) {
-        this.computador = computador;
+    @Autowired
+    public ComputadorService(ComputadorBuilder builder) {
+        this.builder = builder;
     }
 
-//    TODO: montar computador usando o Builder
-//    public Computador montarComputador() {
-//        return new Computador();
-//    }
+    public Computador montarComputador() {
+        builder.adicionarGabinete(new Gabinete());
+        builder.adicionarArmazenamento(new Armazenamento());
+        builder.adicionarFonte(new Fonte());
+        builder.adicionarMemoria(new Memoria());
+        builder.adicionarPlacaMae(new PlacaMae());
+        builder.adicionarPlacaVideo(new PlacaVideo());
+        builder.adicionarProcessador(new Processador());
+        return builder.retornarComputadorMontado();
+    }
 }
