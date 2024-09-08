@@ -6,7 +6,15 @@
                     <hardware-skeleton />
                 </v-col>
             </template>
-            <template v-else-if="items.length === 0"> </template>
+            <template v-else-if="items.length === 0">
+                <v-col cols="12">
+                    <v-alert
+                        title="Nenhuma peça encontrada."
+                        color="grey-darken-2"
+                        variant="outlined"
+                    />
+                </v-col>
+            </template>
             <template v-else>
                 <v-col v-for="item in items" :key="item.id" cols="12" md="6">
                     <hardware-item :hardware="item" />
