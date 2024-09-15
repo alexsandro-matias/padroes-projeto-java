@@ -5,26 +5,14 @@ import { HardwareModel } from '@/model/hardware-model';
 import { Hardware } from '@/types';
 
 export class RemoteHardware {
-    private readonly url: string = 'http://localhost:3000/data/';
+    private readonly url: string =
+        'http://localhost:3000/database/hardware.json';
 
     constructor(private readonly httpClient: HttpGetClient<Hardware[]>) {}
 
-    private getUrl(type: HARDWARE_TYPES): string {
-        const types = {
-            [HARDWARE_TYPES.MOTHERBOARD]: 'placa-mae',
-            [HARDWARE_TYPES.CPU]: 'processador',
-            [HARDWARE_TYPES.GPU]: 'placa-de-video',
-            [HARDWARE_TYPES.RAM]: 'memoria',
-            [HARDWARE_TYPES.STORAGE]: 'armazenamento',
-            [HARDWARE_TYPES.TOWER]: 'gabinete',
-        };
-
-        return `${this.url}${types[type]}.json`;
-    }
-
     async loadAll(type: HARDWARE_TYPES): Promise<HardwareModel[]> {
         const { statusCode, data } = await this.httpClient.get({
-            url: this.getUrl(type),
+            url: this.url,
         });
 
         if (statusCode !== HTTP_STATUS_CODE.SUCCESS) {
