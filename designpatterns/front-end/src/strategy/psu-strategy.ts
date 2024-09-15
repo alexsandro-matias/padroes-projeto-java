@@ -3,21 +3,6 @@ import { HARDWARE_TYPES } from '@/entities/hardware-type';
 import { Desktop } from '@/entities/desktop';
 import { Strategy } from './strategy';
 
-[
-    '350W',
-    '400W',
-    '650W',
-    '750W',
-    '850W',
-    '600W',
-    '1200W',
-    '500W',
-    '1000W',
-    '800W',
-    '550W',
-];
-['RX 7900', 'RTX 4060', 'RX 7600', 'RX 7700', 'X 7800', 'RTX 4070', 'RX 7900'];
-
 export class PsuStrategy implements Strategy {
     private psuExcludes: { [key: string]: string[] } = {
         '4060': ['350W', '400W'],
