@@ -45,6 +45,6 @@ export class DesktopBuilder implements Builder {
     }
 
     public getDesktop() {
-        return { ...this.desktop };
+        return this.desktop;
     }
 }

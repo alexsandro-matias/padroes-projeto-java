@@ -9,4 +9,6 @@ export interface Builder {
     addStorage(item: HardwareModel): Builder;
     addPsu(item: HardwareModel): Builder;
     addCase(item: HardwareModel): Builder;
+
+    getDesktop(): Desktop;
 }
