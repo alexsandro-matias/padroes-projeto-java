@@ -27,14 +27,17 @@
 <script setup lang="ts">
     import { onMounted, reactive, ref } from 'vue';
     import { AxiosHttpClient } from '@/adapter/axios-http-client';
-    import { HARDWARE_TYPES } from '@/enum';
-    import { HardwareModel } from '@/model/hardware-model';
     import { RemoteHardware } from '@/service/remote-hardware';
+    import { Builder } from '@/builder/builder';
+    import { StrategyFactory } from '@/factory/strategy-factory';
+    import { HARDWARE_TYPES } from '@/entities/hardware-type';
+    import { HardwareModel } from '@/entities/hardware-model';
     import HardwareItem from './HardwareItem.vue';
     import HardwareSkeleton from './HardwareSkeleton.vue';
 
     type Props = {
         type: HARDWARE_TYPES;
+        builder: Builder;
     };
 
     const props = defineProps<Props>();
@@ -48,10 +51,12 @@
 
     onMounted(async () => {
         const httpClient = new AxiosHttpClient();
-        const service = new RemoteHardware(httpClient);
+        const factory = new StrategyFactory(props.builder);
+        const strategy = factory.create(props.type);
+        const service = new RemoteHardware(httpClient, strategy);
 
         try {
-            items.value = await service.loadAll(props.type);
+            items.value = await service.loadAll();
         } catch (err) {
             error.message = (err as Error).message;
             error.show = true;

@@ -14,11 +14,11 @@
                         overflow: hidden;
                         line-clamp: 2;
                     "
-                    >{{ hardware.name }}</v-card-text
+                    >{{ hardware.title }}</v-card-text
                 >
                 <v-card-actions class="justify-space-between">
                     <p class="text-h6 font-weight-medium pl-2">
-                        {{ hardware.getPriceCurrency() }}
+                        {{ hardware.priceFormatted }}
                     </p>
                     <v-btn
                         class="ms-2"
@@ -35,7 +35,7 @@
 </template>
 
 <script setup lang="ts">
-    import { HardwareModel } from '@/model/hardware-model';
+    import { HardwareModel } from '@/entities/hardware-model';
 
     type Emits = {
         (e: 'on-select', value: number): void;

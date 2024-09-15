@@ -1,17 +1,22 @@
 import { HTTP_STATUS_CODE } from '@/adapter/enums';
 import { HttpGetClient } from '@/adapter/interface';
-import { HARDWARE_TYPES } from '@/enum';
-import { HardwareModel } from '@/model/hardware-model';
-import { Hardware } from '@/types';
+import { Hardware } from '@/entities/hardware';
+import { HardwareModel } from '@/entities/hardware-model';
+import { Strategy } from '@/strategy/strategy';
 
 export class RemoteHardware {
     private readonly url: string =
         'http://localhost:3000/database/hardware.json';
+    private readonly strategy: Strategy;
+    private readonly client: HttpGetClient<Hardware[]>;
 
-    constructor(private readonly httpClient: HttpGetClient<Hardware[]>) {}
+    constructor(client: HttpGetClient<Hardware[]>, strategy: Strategy) {
+        this.client = client;
+        this.strategy = strategy;
+    }
 
-    async loadAll(type: HARDWARE_TYPES): Promise<HardwareModel[]> {
-        const { statusCode, data } = await this.httpClient.get({
+    async loadAll(): Promise<HardwareModel[]> {
+        const { statusCode, data } = await this.client.get({
             url: this.url,
         });
 
@@ -24,6 +29,8 @@ export class RemoteHardware {
 
         const hardwareList = Array.isArray(data) ? data : [];
 
-        return hardwareList.map((hardware) => new HardwareModel(hardware));
+        return this.strategy
+            .filter(hardwareList)
+            .map((hardware) => new HardwareModel(hardware));
     }
 }

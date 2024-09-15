@@ -30,9 +30,9 @@ export class HardwareModel {
     }
 
     get priceFormatted(): string {
-        const { format } = new Intl.NumberFormat('pt-br', {
+        const { format } = new Intl.NumberFormat('pt-BR', {
             style: 'currency',
-            currency: 'pt-br',
+            currency: 'BRL',
         });
 
         return format(this.hardware.price / 100);
