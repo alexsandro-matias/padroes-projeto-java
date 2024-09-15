@@ -14,11 +14,11 @@ public interface Builder {
     * Processador
     * */
 
-    void adicionarArmazenamento(Armazenamento armazenamento);
-    void adicionarFonte(Fonte fonte);
-    void adicionarGabinete(Gabinete gabinete);
-    void adicionarMemoria(Memoria memoria);
-    void adicionarPlacaMae(PlacaMae placaMae);
-    void adicionarPlacaVideo(PlacaVideo placaVideo);
-    void adicionarProcessador(Processador processador);
+    Builder adicionarArmazenamento(Armazenamento armazenamento);
+    Builder adicionarFonte(Fonte fonte);
+    Builder adicionarGabinete(Gabinete gabinete);
+    Builder adicionarMemoria(Memoria memoria);
+    Builder adicionarPlacaMae(PlacaMae placaMae);
+    Builder adicionarPlacaVideo(PlacaVideo placaVideo);
+    Builder adicionarProcessador(Processador processador);
 }

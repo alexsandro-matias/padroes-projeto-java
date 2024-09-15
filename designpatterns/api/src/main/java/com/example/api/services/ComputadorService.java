@@ -13,6 +13,9 @@ public class ComputadorService {
         this.builder = builder;
     }
 
+    // criar um método que receba o id e o tipo de uma peça
+    // e, dependendo do tipo, chama o respectivo método
+    // (switch case - depois encapsular em uma classe Director)
     public Computador montarComputador() {
         builder.adicionarGabinete(new Gabinete());
         builder.adicionarArmazenamento(new Armazenamento());

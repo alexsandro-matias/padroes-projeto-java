@@ -12,51 +12,51 @@ public class ComputadorBuilder implements Builder {
     private PlacaMae placaMae;
     private PlacaVideo placaVideo;
     private Processador processador;
+    private Computador computador;
 
     @Override
-    public void adicionarArmazenamento(Armazenamento armazenamento) {
+    public Builder adicionarArmazenamento(Armazenamento armazenamento) {
         this.armazenamento = armazenamento;
+        return this;
     }
 
     @Override
-    public void adicionarFonte(Fonte fonte) {
+    public Builder adicionarFonte(Fonte fonte) {
         this.fonte = fonte;
+        return this;
     }
 
     @Override
-    public void adicionarGabinete(Gabinete gabinete) {
+    public Builder adicionarGabinete(Gabinete gabinete) {
         this.gabinete = gabinete;
+        return this;
     }
 
     @Override
-    public void adicionarMemoria(Memoria memoria) {
+    public Builder adicionarMemoria(Memoria memoria) {
         this.memoria = memoria;
+        return this;
     }
 
     @Override
-    public void adicionarPlacaMae(PlacaMae placaMae) {
+    public Builder adicionarPlacaMae(PlacaMae placaMae) {
         this.placaMae = placaMae;
+        return this;
     }
 
     @Override
-    public void adicionarPlacaVideo(PlacaVideo placaVideo) {
+    public Builder adicionarPlacaVideo(PlacaVideo placaVideo) {
         this.placaVideo = placaVideo;
+        return this;
     }
 
     @Override
-    public void adicionarProcessador(Processador processador) {
+    public Builder adicionarProcessador(Processador processador) {
         this.processador = processador;
+        return this;
     }
 
     public Computador retornarComputadorMontado() {
-        return new Computador(
-                this.gabinete,
-                this.processador,
-                this.memoria,
-                this.armazenamento,
-                this.placaMae,
-                this.placaVideo,
-                this.fonte
-        );
+        return this.computador;
     }
 }

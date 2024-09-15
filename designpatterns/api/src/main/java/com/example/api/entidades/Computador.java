@@ -1,34 +1,31 @@
 package com.example.api.entidades;
 
 public class Computador {
-    private final Gabinete gabinete;
-    private final Processador processador;
-    private final Memoria memoria;
-    private final Armazenamento armazenamento;
-    private final PlacaMae placaMae;
-    private final PlacaVideo placaVideo;
-    private final Fonte fonte;
-
-//    public Computador() {
-//    }
+    private Gabinete gabinete;
+    private Processador processador;
+    private Memoria memoria;
+    private Armazenamento armazenamento;
+    private PlacaMae placaMae;
+    private PlacaVideo placaVideo;
+    private Fonte fonte;
 
     public Computador (
-            Gabinete gabinete,
-            Processador processador,
-            Memoria memoria,
-            Armazenamento armazenamento,
-            PlacaMae placaMae,
-            PlacaVideo placaVideo,
-            Fonte fonte
+//            Gabinete gabinete,
+//            Processador processador,
+//            Memoria memoria,
+//            Armazenamento armazenamento,
+//            PlacaMae placaMae,
+//            PlacaVideo placaVideo,
+//            Fonte fonte
     )
     {
-        this.gabinete = gabinete;
-        this.processador = processador;
-        this.memoria = memoria;
-        this.armazenamento = armazenamento;
-        this.placaMae = placaMae;
-        this.placaVideo = placaVideo;
-        this.fonte = fonte;
+//        this.gabinete = gabinete;
+//        this.processador = processador;
+//        this.memoria = memoria;
+//        this.armazenamento = armazenamento;
+//        this.placaMae = placaMae;
+//        this.placaVideo = placaVideo;
+//        this.fonte = fonte;
     }
 
     public Gabinete getGabinete() {

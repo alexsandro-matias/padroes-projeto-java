@@ -14,7 +14,9 @@ public class ComputadorController {
         this.computadorService = service;
     }
 
-    @GetMapping("/")
+    @PostMapping("/")
+    // receber objeto do front que descreve
+    // quais peças serão necessárias para construir o computador
     public Computador buscarComputador() {
         return computadorService.montarComputador();
     }
