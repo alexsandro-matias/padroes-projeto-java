@@ -43,8 +43,7 @@ export class RamStrategy implements Strategy {
 
         return items.filter((item) => {
             return (
-                item.type === HARDWARE_TYPES.MOTHERBOARD &&
-                item.title.includes(type)
+                item.type === HARDWARE_TYPES.RAM && item.title.includes(type)
             );
         });
     }

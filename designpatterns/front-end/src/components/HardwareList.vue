@@ -17,7 +17,10 @@
             </template>
             <template v-else>
                 <v-col v-for="item in items" :key="item.id" cols="12" md="6">
-                    <hardware-item :hardware="item" />
+                    <hardware-item
+                        :hardware="item"
+                        @on-select="selectHardware"
+                    />
                 </v-col>
             </template>
         </v-row>
@@ -35,11 +38,16 @@
     import HardwareItem from './HardwareItem.vue';
     import HardwareSkeleton from './HardwareSkeleton.vue';
 
-    type Props = {
+    interface Emits {
+        (e: 'on-select', value: HardwareModel): void;
+    }
+
+    interface Props {
         type: HARDWARE_TYPES;
         builder: Builder;
-    };
+    }
 
+    const emits = defineEmits<Emits>();
     const props = defineProps<Props>();
 
     const items = ref<HardwareModel[]>([]);
@@ -48,6 +56,11 @@
         show: false,
         message: '',
     });
+
+    function selectHardware(id: number) {
+        const hardware = items.value.find((item) => item.id === id);
+        emits('on-select', hardware as HardwareModel);
+    }
 
     onMounted(async () => {
         const httpClient = new AxiosHttpClient();

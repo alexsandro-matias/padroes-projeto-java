@@ -1,7 +1,18 @@
 <template>
     <v-app>
         <v-main>
-            <v-toolbar title="Monte seu PC" />
+            <v-toolbar title="Monte seu PC">
+                <template #append>
+                    <div class="pr-4">
+                        <p class="text-right text-caption text-grey-lighten-1">
+                            Valor total
+                        </p>
+                        <p class="text-right text-h6 text-blue-lighten-3">
+                            {{ builder.price }}
+                        </p>
+                    </div>
+                </template>
+            </v-toolbar>
             <v-stepper v-model="step" alt-labels>
                 <v-stepper-header>
                     <v-stepper-item
@@ -21,7 +32,11 @@
                         :key="e.value"
                         :value="e.value"
                     >
-                        <hardware-list :type="e.value" :builder="builder" />
+                        <hardware-list
+                            :type="e.value"
+                            :builder="builder"
+                            @on-select="addHardware"
+                        />
                     </v-stepper-window-item>
                 </v-stepper-window>
                 <v-stepper-actions>
@@ -49,13 +64,14 @@
 </template>
 
 <script setup lang="ts">
-    import { ref, computed } from 'vue';
-    import HardwareList from './components/HardwareList.vue';
+    import { ref, computed, watch } from 'vue';
     import { DesktopBuilder } from './builder/desktop-builder';
     import { HARDWARE_TYPES } from './entities/hardware-type';
     import { Step } from './entities/step';
+    import { HardwareModel } from './entities/hardware-model';
+    import HardwareList from './components/HardwareList.vue';
 
-    const builder = new DesktopBuilder();
+    let builder = new DesktopBuilder();
 
     const steps: Step[] = [
         { value: HARDWARE_TYPES.CPU, title: 'Processador' },
@@ -68,11 +84,43 @@
     ];
 
     const step = ref(HARDWARE_TYPES.CPU);
+    const disabledNext = ref(true);
+
     const etapaIndex = computed(() =>
         steps.findIndex((e) => e.value === step.value),
     );
-    const isEnd = computed(() => etapaIndex.value === steps.length - 1);
+    const isEnd = computed(
+        () => disabledNext.value || etapaIndex.value === steps.length - 1,
+    );
     const isStart = computed(() => etapaIndex.value === 0);
+
+    function addHardware(hardware: HardwareModel) {
+        switch (step.value) {
+            case HARDWARE_TYPES.CPU:
+                builder.addCpu(hardware);
+                break;
+            case HARDWARE_TYPES.MOTHERBOARD:
+                builder.addMotherboard(hardware);
+                break;
+            case HARDWARE_TYPES.RAM:
+                builder.addRam(hardware);
+                break;
+            case HARDWARE_TYPES.GPU:
+                builder.addGpu(hardware);
+                break;
+            case HARDWARE_TYPES.STORAGE:
+                builder.addStorage(hardware);
+                break;
+            case HARDWARE_TYPES.PSU:
+                builder.addPsu(hardware);
+                break;
+            case HARDWARE_TYPES.CASE:
+                builder.addCase(hardware);
+                break;
+        }
+
+        disabledNext.value = false;
+    }
 
     function next() {
         if (isEnd.value) {
@@ -89,4 +137,6 @@
 
         step.value = steps[etapaIndex.value - 1].value;
     }
+
+    watch(step, () => (disabledNext.value = true));
 </script>

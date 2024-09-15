@@ -9,6 +9,14 @@ export class DesktopBuilder implements Builder {
         this.desktop = new Desktop();
     }
 
+    public get price() {
+        return this.desktop.getPriceFormatted();
+    }
+
+    public get hasCpu() {
+        return !!this.desktop.getCpu();
+    }
+
     public addCpu(cpu: HardwareModel) {
         this.desktop.setCpu(cpu);
         return this;

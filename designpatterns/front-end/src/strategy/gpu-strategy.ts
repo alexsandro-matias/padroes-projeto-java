@@ -4,6 +4,6 @@ import { Strategy } from './strategy';
 
 export class GpuStrategy implements Strategy {
     filter(items: Hardware[]): Hardware[] {
-        return items.filter((item) => item.type === HARDWARE_TYPES.CPU);
+        return items.filter((item) => item.type === HARDWARE_TYPES.GPU);
     }
 }

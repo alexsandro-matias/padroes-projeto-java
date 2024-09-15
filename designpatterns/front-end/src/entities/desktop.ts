@@ -2,21 +2,21 @@ import { HardwareModel } from './hardware-model';
 import { HARDWARE_TYPES } from './hardware-type';
 
 export class Desktop {
-    private _cpu?: HardwareModel;
-    private _motherboard?: HardwareModel;
-    private _ram?: HardwareModel;
-    private _gpu?: HardwareModel;
-    private _storage?: HardwareModel;
-    private _psu?: HardwareModel;
-    private _case?: HardwareModel;
+    private cpu?: HardwareModel;
+    private motherboard?: HardwareModel;
+    private ram?: HardwareModel;
+    private gpu?: HardwareModel;
+    private storage?: HardwareModel;
+    private psu?: HardwareModel;
+    private case?: HardwareModel;
 
-    public getCpu = () => this._cpu;
-    public getMotherboard = () => this._motherboard;
-    public getRam = () => this._ram;
-    public getGpu = () => this._gpu;
-    public getStorage = () => this._storage;
-    public getPsu = () => this._psu;
-    public getCase = () => this._case;
+    public getCpu = () => this.cpu;
+    public getMotherboard = () => this.motherboard;
+    public getRam = () => this.ram;
+    public getGpu = () => this.gpu;
+    public getStorage = () => this.storage;
+    public getPsu = () => this.psu;
+    public getCase = () => this.case;
 
     public getPrice = () =>
         this.components().reduce((acc, component) => {
@@ -29,7 +29,7 @@ export class Desktop {
             throw new Error('Invalid hardware type');
         }
 
-        this._cpu = cpu;
+        this.cpu = cpu;
     }
 
     public setMotherboard(motherboard: HardwareModel) {
@@ -37,7 +37,7 @@ export class Desktop {
             throw new Error('Invalid hardware type');
         }
 
-        this._motherboard = motherboard;
+        this.motherboard = motherboard;
     }
 
     public setRam(ram: HardwareModel) {
@@ -45,7 +45,7 @@ export class Desktop {
             throw new Error('Invalid hardware type');
         }
 
-        this._ram = ram;
+        this.ram = ram;
     }
 
     public setGpu(gpu: HardwareModel) {
@@ -53,7 +53,7 @@ export class Desktop {
             throw new Error('Invalid hardware type');
         }
 
-        this._gpu = gpu;
+        this.gpu = gpu;
     }
 
     public setStorage(storage: HardwareModel) {
@@ -61,7 +61,7 @@ export class Desktop {
             throw new Error('Invalid hardware type');
         }
 
-        this._storage = storage;
+        this.storage = storage;
     }
 
     public setPsu(psu: HardwareModel) {
@@ -69,7 +69,7 @@ export class Desktop {
             throw new Error('Invalid hardware type');
         }
 
-        this._psu = psu;
+        this.psu = psu;
     }
 
     public setCase(caseHardware: HardwareModel) {
@@ -77,13 +77,13 @@ export class Desktop {
             throw new Error('Invalid hardware type');
         }
 
-        this._case = caseHardware;
+        this.case = caseHardware;
     }
 
     public getPriceFormatted = () => {
-        const { format } = new Intl.NumberFormat('pt-br', {
+        const { format } = new Intl.NumberFormat('pt-BR', {
             style: 'currency',
-            currency: 'pt-br',
+            currency: 'BRL',
         });
 
         return format(this.getPrice() / 100);
@@ -94,12 +94,12 @@ export class Desktop {
     }
 
     private components = (): (HardwareModel | undefined)[] => [
-        this._cpu,
-        this._motherboard,
-        this._ram,
-        this._gpu,
-        this._storage,
-        this._psu,
-        this._case,
+        this.cpu,
+        this.motherboard,
+        this.ram,
+        this.gpu,
+        this.storage,
+        this.psu,
+        this.case,
     ];
 }
