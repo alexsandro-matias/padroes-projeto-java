@@ -1,6 +1,12 @@
 import { Desktop } from '@/entities/desktop';
 import { HardwareModel } from '@/entities/hardware-model';
 
+/**
+ * 
+ * Melhorar uso do Builder
+ * 
+ */
+
 export interface Builder {
     addCpu(item: HardwareModel): Builder;
     addMotherboard(item: HardwareModel): Builder;

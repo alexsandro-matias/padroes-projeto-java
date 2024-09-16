@@ -71,7 +71,7 @@
     import { HardwareModel } from './entities/hardware-model';
     import HardwareList from './components/HardwareList.vue';
 
-    let builder = new DesktopBuilder();
+    const builder = new DesktopBuilder();
 
     const steps: Step[] = [
         { value: HARDWARE_TYPES.CPU, title: 'Processador' },
