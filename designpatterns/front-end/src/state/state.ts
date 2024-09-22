@@ -2,7 +2,7 @@ import { AxiosHttpClient } from '@/adapter/axios-http-client';
 import { Hardware } from '@/entities/hardware';
 import { HardwareModel } from '@/entities/hardware-model';
 import { HARDWARE_TYPES } from '@/entities/hardware-type';
-import { DesktopOrder } from '@/desktop-order';
+import { DesktopOrder } from '@/entities/desktop-order';
 
 export abstract class State {
     protected abstract name: HARDWARE_TYPES;

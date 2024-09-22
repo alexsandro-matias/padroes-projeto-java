@@ -52,6 +52,15 @@
                     </template>
                     <template #next>
                         <v-btn
+                            v-if="order.isFinalState()"
+                            :disabled="!order.getHardware(step)"
+                            variant="elevated"
+                            color="primary"
+                            @click="openModal"
+                            >Concluir</v-btn
+                        >
+                        <v-btn
+                            v-else
                             :disabled="!order.getHardware(step)"
                             variant="elevated"
                             color="primary"
@@ -62,6 +71,9 @@
                 </v-stepper-actions>
             </v-stepper>
         </v-main>
+        <v-dialog v-model="dialog" width="auto">
+            <order-list :order="order" />
+        </v-dialog>
     </v-app>
 </template>
 
@@ -70,10 +82,11 @@
     import { HARDWARE_TYPES } from './entities/hardware-type';
     import { Step } from './entities/step';
     import { HardwareModel } from './entities/hardware-model';
-    import { DesktopOrder } from './desktop-order';
+    import { DesktopOrder } from './entities/desktop-order';
     import HardwareList from './components/HardwareList.vue';
 
     const order = reactive(new DesktopOrder());
+    const dialog = ref(false);
 
     const steps: Step[] = [
         { value: HARDWARE_TYPES.CPU, title: 'Processador' },
@@ -107,6 +120,10 @@
         if (currentStatus !== prevStatus) {
             step.value = prevStatus;
         }
+    }
+
+    function openModal() {
+        dialog.value = true;
     }
 </script>
 

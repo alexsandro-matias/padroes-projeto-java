@@ -46,7 +46,11 @@ export class RamState extends State {
         }
 
         this.hardwareList = hardwareList
-            .filter((hardware) => hardware.type === HARDWARE_TYPES.RAM && hardware.title.includes(type))
+            .filter(
+                (hardware) =>
+                    hardware.type === HARDWARE_TYPES.RAM &&
+                    hardware.title.includes(type),
+            )
             .map((hardware) => new HardwareModel(hardware));
     }
 

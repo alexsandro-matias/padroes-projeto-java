@@ -1,16 +1,30 @@
-import { State } from './state/state';
-import { Desktop } from './entities/desktop';
-import { HardwareModel } from './entities/hardware-model';
-import { CpuState } from './state/cpu-state';
-import { HARDWARE_TYPES } from './entities/hardware-type';
+import { State } from '@/state/state';
+import { Desktop } from './desktop';
+import { CpuState } from '@/state/cpu-state';
+import { HardwareModel } from './hardware-model';
+import { HARDWARE_TYPES } from './hardware-type';
+import { Strategy } from '@/strategy/strategy';
+import { DefaultStrategy } from '@/strategy/default-strategy';
 
 export class DesktopOrder {
     private state: State;
     private desktop: Desktop;
+    private discountStrategy: Strategy;
 
     constructor() {
         this.state = new CpuState(this);
         this.desktop = new Desktop();
+        this.discountStrategy = new DefaultStrategy();
+    }
+
+    // Manipulação da estratégias de desconto
+
+    public setDiscountStrategy(strategy: Strategy): void {
+        this.discountStrategy = strategy;
+    }
+
+    public applyDiscountStrategy(): Desktop {
+        return this.discountStrategy.calculate(this);
     }
 
     // Manipulação do computador
@@ -23,26 +37,19 @@ export class DesktopOrder {
         return this.desktop.toObject()[type];
     }
 
+    public getHardwareList(): HardwareModel[] {
+        return this.desktop
+            .toList()
+            .filter((hardware) => hardware !== undefined);
+    }
+
     public addHardware(hardware: HardwareModel): Desktop {
         this.desktop.addHardware(hardware);
         return this.desktop;
     }
 
     public getPrice(): string {
-        const { format } = Intl.NumberFormat('pt-BR', {
-            style: 'currency',
-            currency: 'BRL',
-        });
-
-        const totalPrice = this.desktop.toList().reduce((acc, hardware) => {
-            if (hardware !== undefined) {
-                acc += hardware.price;
-            }
-
-            return acc;
-        }, 0);
-
-        return format(totalPrice / 100);
+        return this.desktop.getPriceFormatted();
     }
 
     // Manipulações de estado
@@ -68,5 +75,9 @@ export class DesktopOrder {
 
     public getCurrentStatus(): HARDWARE_TYPES {
         return this.state.getStatus();
+    }
+
+    public isFinalState(): boolean {
+        return this.getCurrentStatus() === HARDWARE_TYPES.CASE;
     }
 }

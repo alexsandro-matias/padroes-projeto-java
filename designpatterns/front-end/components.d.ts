@@ -10,5 +10,7 @@ declare module 'vue' {
     HardwareItem: typeof import('./src/components/HardwareItem.vue')['default']
     HardwareList: typeof import('./src/components/HardwareList.vue')['default']
     HardwareSkeleton: typeof import('./src/components/HardwareSkeleton.vue')['default']
+    OrderItem: typeof import('./src/components/OrderItem.vue')['default']
+    OrderList: typeof import('./src/components/OrderList.vue')['default']
   }
 }

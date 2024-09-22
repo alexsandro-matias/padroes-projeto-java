@@ -5,17 +5,22 @@
                 <v-img :src="hardware.image" />
             </v-avatar>
             <div class="flex-fill">
-                <v-card-text
-                    class="text-grey-lighten-1"
-                    style="
-                        height: 72px;
-                        display: -webkit-box;
-                        -webkit-box-orient: vertical;
-                        overflow: hidden;
-                        line-clamp: 2;
-                    "
-                    >{{ hardware.title }}</v-card-text
-                >
+                <v-card-text class="pb-0 pt-3">
+                    <p class="text-caption text-grey-lighten-1">
+                        {{ hardware.manufacturer }}
+                    </p>
+                    <p
+                        class="text-body-2 opacity-100 text-white"
+                        style="
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                            line-clamp: 2;
+                        "
+                    >
+                        {{ hardware.title }}
+                    </p>
+                </v-card-text>
                 <v-card-actions class="justify-space-between">
                     <p class="text-h6 font-weight-medium pl-2 text-white">
                         {{ hardware.priceFormatted }}

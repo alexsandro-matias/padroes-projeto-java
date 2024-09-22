@@ -35,6 +35,25 @@ export class Desktop {
         return this.case;
     }
 
+    public getTotalPrice(): number {
+        return this.toList().reduce((acc, hardware) => {
+            if (hardware !== undefined) {
+                acc += hardware.price;
+            }
+
+            return acc;
+        }, 0);
+    }
+
+    public getPriceFormatted(): string {
+        const { format } = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+        });
+
+        return format(this.getTotalPrice() / 100);
+    }
+
     public addHardware(hardware: HardwareModel) {
         switch (hardware.type) {
             case HARDWARE_TYPES.CPU:

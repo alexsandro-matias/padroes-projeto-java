@@ -1,12 +1,21 @@
 <template>
     <v-container>
         <v-row>
+            <v-col cols="12">
+                <v-text-field
+                    v-model="search"
+                    label="Procure por marca ou nome"
+                    variant="outlined"
+                    clearable
+                    @click:clear="search = ''"
+                />
+            </v-col>
             <template v-if="loading">
                 <v-col cols="12" md="6">
                     <hardware-skeleton />
                 </v-col>
             </template>
-            <template v-else-if="items.length === 0">
+            <template v-else-if="filteredItems.length === 0">
                 <v-col cols="12">
                     <v-alert
                         title="Nenhuma peça encontrada."
@@ -16,7 +25,12 @@
                 </v-col>
             </template>
             <template v-else>
-                <v-col v-for="item in items" :key="item.id" cols="12" md="6">
+                <v-col
+                    v-for="item in filteredItems"
+                    :key="item.id"
+                    cols="12"
+                    md="6"
+                >
                     <hardware-item
                         :hardware="item"
                         :selected="
@@ -31,10 +45,10 @@
 </template>
 
 <script setup lang="ts">
-    import { onMounted, ref } from 'vue';
+    import { computed, onMounted, ref } from 'vue';
     import { HARDWARE_TYPES } from '@/entities/hardware-type';
     import { HardwareModel } from '@/entities/hardware-model';
-    import { DesktopOrder } from '@/desktop-order';
+    import { DesktopOrder } from '@/entities/desktop-order';
     import HardwareItem from './HardwareItem.vue';
     import HardwareSkeleton from './HardwareSkeleton.vue';
 
@@ -52,11 +66,21 @@
 
     const items = ref<HardwareModel[]>([]);
     const loading = ref(false);
+    const search = ref('');
 
     function selectHardware(id: number) {
         const hardware = items.value.find((item) => item.id === id);
         emits('on-select', hardware as HardwareModel);
     }
+
+    const filteredItems = computed(() => {
+        return items.value.filter((item) => {
+            const includeInTitle = item.title.toLowerCase().includes(search.value.toLowerCase())
+            const includesInManufacturer = item.manufacturer.toLowerCase().includes(search.value.toLowerCase())
+
+            return includeInTitle || includesInManufacturer;
+        });
+    });
 
     onMounted(async () => {
         loading.value = true;
