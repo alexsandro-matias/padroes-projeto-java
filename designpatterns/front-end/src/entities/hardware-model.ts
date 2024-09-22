@@ -1,5 +1,5 @@
-import { HARDWARE_TYPES } from './hardware-type';
 import { Hardware } from './hardware';
+import { HARDWARE_TYPES } from './hardware-type';
 import { MANUFACTURERS } from './manufacurers';
 
 export class HardwareModel {

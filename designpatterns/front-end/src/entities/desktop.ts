@@ -10,96 +10,78 @@ export class Desktop {
     private psu?: HardwareModel;
     private case?: HardwareModel;
 
-    public getCpu = () => this.cpu;
-    public getMotherboard = () => this.motherboard;
-    public getRam = () => this.ram;
-    public getGpu = () => this.gpu;
-    public getStorage = () => this.storage;
-    public getPsu = () => this.psu;
-    public getCase = () => this.case;
+    public getCpu() {
+        return this.cpu;
+    }
+    public getMotherboard() {
+        return this.motherboard;
+    }
+    public getRam() {
+        return this.ram;
+    }
+    public getGpu() {
+        return this.gpu;
+    }
 
-    public getPrice = () =>
-        this.components().reduce((acc, component) => {
-            acc += component?.price || 0;
-            return acc;
-        }, 0);
+    public getStorage() {
+        return this.storage;
+    }
 
-    public setCpu(cpu: HardwareModel) {
-        if (cpu.type !== HARDWARE_TYPES.CPU) {
-            throw new Error('Invalid hardware type');
+    public getPsu() {
+        return this.psu;
+    }
+
+    public getCase() {
+        return this.case;
+    }
+
+    public addHardware(hardware: HardwareModel) {
+        switch (hardware.type) {
+            case HARDWARE_TYPES.CPU:
+                this.cpu = hardware;
+                break;
+            case HARDWARE_TYPES.MOTHERBOARD:
+                this.motherboard = hardware;
+                break;
+            case HARDWARE_TYPES.RAM:
+                this.ram = hardware;
+                break;
+            case HARDWARE_TYPES.GPU:
+                this.gpu = hardware;
+                break;
+            case HARDWARE_TYPES.STORAGE:
+                this.storage = hardware;
+                break;
+            case HARDWARE_TYPES.PSU:
+                this.psu = hardware;
+                break;
+            case HARDWARE_TYPES.CASE:
+                this.case = hardware;
+                break;
         }
-
-        this.cpu = cpu;
     }
 
-    public setMotherboard(motherboard: HardwareModel) {
-        if (motherboard.type !== HARDWARE_TYPES.MOTHERBOARD) {
-            throw new Error('Invalid hardware type');
-        }
-
-        this.motherboard = motherboard;
+    public toList() {
+        return [
+            this.cpu,
+            this.motherboard,
+            this.ram,
+            this.gpu,
+            this.storage,
+            this.psu,
+            this.case,
+        ];
     }
 
-    public setRam(ram: HardwareModel) {
-        if (ram.type !== HARDWARE_TYPES.RAM) {
-            throw new Error('Invalid hardware type');
-        }
-
-        this.ram = ram;
+    public toObject() {
+        return {
+            [HARDWARE_TYPES.CPU]: this.cpu,
+            [HARDWARE_TYPES.MOTHERBOARD]: this.motherboard,
+            [HARDWARE_TYPES.RAM]: this.ram,
+            [HARDWARE_TYPES.GPU]: this.gpu,
+            [HARDWARE_TYPES.STORAGE]: this.storage,
+            [HARDWARE_TYPES.PSU]: this.psu,
+            [HARDWARE_TYPES.CASE]: this.case,
+        };
     }
-
-    public setGpu(gpu: HardwareModel) {
-        if (gpu.type !== HARDWARE_TYPES.GPU) {
-            throw new Error('Invalid hardware type');
-        }
-
-        this.gpu = gpu;
-    }
-
-    public setStorage(storage: HardwareModel) {
-        if (storage.type !== HARDWARE_TYPES.STORAGE) {
-            throw new Error('Invalid hardware type');
-        }
-
-        this.storage = storage;
-    }
-
-    public setPsu(psu: HardwareModel) {
-        if (psu.type !== HARDWARE_TYPES.PSU) {
-            throw new Error('Invalid hardware type');
-        }
-
-        this.psu = psu;
-    }
-
-    public setCase(caseHardware: HardwareModel) {
-        if (caseHardware.type !== HARDWARE_TYPES.CASE) {
-            throw new Error('Invalid hardware type');
-        }
-
-        this.case = caseHardware;
-    }
-
-    public getPriceFormatted = () => {
-        const { format } = new Intl.NumberFormat('pt-BR', {
-            style: 'currency',
-            currency: 'BRL',
-        });
-
-        return format(this.getPrice() / 100);
-    };
-
-    public isMounted() {
-        return this.components().every((component) => component !== undefined);
-    }
-
-    private components = (): (HardwareModel | undefined)[] => [
-        this.cpu,
-        this.motherboard,
-        this.ram,
-        this.gpu,
-        this.storage,
-        this.psu,
-        this.case,
-    ];
 }

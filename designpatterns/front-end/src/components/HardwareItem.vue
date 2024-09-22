@@ -1,5 +1,5 @@
 <template>
-    <v-card color="grey-darken-3">
+    <v-card color="grey-darken-3" :variant="selected ? 'flat' : 'outlined'">
         <div class="d-flex">
             <v-avatar rounded="0" class="flex-0-0" size="125">
                 <v-img :src="hardware.image" />
@@ -17,13 +17,13 @@
                     >{{ hardware.title }}</v-card-text
                 >
                 <v-card-actions class="justify-space-between">
-                    <p class="text-h6 font-weight-medium pl-2">
+                    <p class="text-h6 font-weight-medium pl-2 text-white">
                         {{ hardware.priceFormatted }}
                     </p>
                     <v-btn
                         class="ms-2"
                         size="small"
-                        variant="outlined"
+                        :variant="selected ? 'flat' : 'outlined'"
                         color="primary"
                         @click="$emit('on-select', hardware.id)"
                         >Escolher</v-btn
@@ -42,7 +42,8 @@
     };
 
     type Props = {
-        hardware: HardwareModel;
+        hardware: Readonly<HardwareModel>;
+        selected: boolean;
     };
 
     defineEmits<Emits>();

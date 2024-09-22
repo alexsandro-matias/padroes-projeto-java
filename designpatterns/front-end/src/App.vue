@@ -8,21 +8,25 @@
                             Valor total
                         </p>
                         <p class="text-right text-h6 text-blue-lighten-3">
-                            {{ builder.price }}
+                            {{ order.getPrice() }}
                         </p>
                     </div>
                 </template>
             </v-toolbar>
             <v-stepper v-model="step" alt-labels>
                 <v-stepper-header>
-                    <v-stepper-item
-                        v-for="e in steps"
-                        :key="e.value"
-                        :title="e.title"
-                        :value="e.value"
-                        color="primary"
-                        icon="mdi-check"
-                    />
+                    <template v-for="(e, index) in steps" :key="e.value">
+                        <v-stepper-item
+                            :title="e.title"
+                            :value="e.value"
+                            :complete="
+                                index < steps.findIndex((s) => step === s.value)
+                            "
+                            color="primary"
+                            icon="mdi-check"
+                        />
+                        <v-divider v-if="index < steps.length - 1" />
+                    </template>
                 </v-stepper-header>
                 <v-stepper-window
                     style="height: calc(100vh - 268px); overflow-y: auto"
@@ -32,28 +36,26 @@
                         :key="e.value"
                         :value="e.value"
                     >
-                        <hardware-list
-                            :type="e.value"
-                            :builder="builder"
-                            @on-select="addHardware"
-                        />
+                        <transition name="fade">
+                            <hardware-list
+                                v-if="step === e.value"
+                                :order="order"
+                                :type="e.value"
+                                @on-select="addHardware"
+                            />
+                        </transition>
                     </v-stepper-window-item>
                 </v-stepper-window>
                 <v-stepper-actions>
                     <template #prev>
-                        <v-btn
-                            variant="outlined"
-                            @click="prev"
-                            :disabled="isStart"
-                            >Voltar</v-btn
-                        >
+                        <v-btn variant="outlined" @click="prev">Voltar</v-btn>
                     </template>
                     <template #next>
                         <v-btn
+                            :disabled="!order.getHardware(step)"
                             variant="elevated"
                             color="primary"
                             @click="next"
-                            :disabled="isEnd"
                             >Avançar</v-btn
                         >
                     </template>
@@ -64,14 +66,14 @@
 </template>
 
 <script setup lang="ts">
-    import { ref, computed, watch } from 'vue';
-    import { DesktopBuilder } from './builder/desktop-builder';
+    import { ref, reactive } from 'vue';
     import { HARDWARE_TYPES } from './entities/hardware-type';
     import { Step } from './entities/step';
     import { HardwareModel } from './entities/hardware-model';
+    import { DesktopOrder } from './desktop-order';
     import HardwareList from './components/HardwareList.vue';
 
-    const builder = new DesktopBuilder();
+    const order = reactive(new DesktopOrder());
 
     const steps: Step[] = [
         { value: HARDWARE_TYPES.CPU, title: 'Processador' },
@@ -84,59 +86,38 @@
     ];
 
     const step = ref(HARDWARE_TYPES.CPU);
-    const disabledNext = ref(true);
-
-    const etapaIndex = computed(() =>
-        steps.findIndex((e) => e.value === step.value),
-    );
-    const isEnd = computed(
-        () => disabledNext.value || etapaIndex.value === steps.length - 1,
-    );
-    const isStart = computed(() => etapaIndex.value === 0);
 
     function addHardware(hardware: HardwareModel) {
-        switch (step.value) {
-            case HARDWARE_TYPES.CPU:
-                builder.addCpu(hardware);
-                break;
-            case HARDWARE_TYPES.MOTHERBOARD:
-                builder.addMotherboard(hardware);
-                break;
-            case HARDWARE_TYPES.RAM:
-                builder.addRam(hardware);
-                break;
-            case HARDWARE_TYPES.GPU:
-                builder.addGpu(hardware);
-                break;
-            case HARDWARE_TYPES.STORAGE:
-                builder.addStorage(hardware);
-                break;
-            case HARDWARE_TYPES.PSU:
-                builder.addPsu(hardware);
-                break;
-            case HARDWARE_TYPES.CASE:
-                builder.addCase(hardware);
-                break;
-        }
-
-        disabledNext.value = false;
+        order.addHardware(hardware);
     }
 
     function next() {
-        if (isEnd.value) {
-            return;
-        }
+        const currentStatus = order.getCurrentStatus();
+        const nextStatus = order.nextState();
 
-        step.value = steps[etapaIndex.value + 1].value;
+        if (currentStatus !== nextStatus) {
+            step.value = nextStatus;
+        }
     }
 
     function prev() {
-        if (isStart.value) {
-            return;
-        }
+        const currentStatus = order.getCurrentStatus();
+        const prevStatus = order.prevState();
 
-        step.value = steps[etapaIndex.value - 1].value;
+        if (currentStatus !== prevStatus) {
+            step.value = prevStatus;
+        }
+    }
+</script>
+
+<style scoped>
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity 0.3s;
     }
 
-    watch(step, () => (disabledNext.value = true));
-</script>
+    .fade-enter-from,
+    .fade-leave-to {
+        opacity: 0;
+    }
+</style>

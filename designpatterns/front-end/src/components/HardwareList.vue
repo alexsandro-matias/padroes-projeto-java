@@ -19,6 +19,9 @@
                 <v-col v-for="item in items" :key="item.id" cols="12" md="6">
                     <hardware-item
                         :hardware="item"
+                        :selected="
+                            item.id === order.getHardware(props.type)?.id
+                        "
                         @on-select="selectHardware"
                     />
                 </v-col>
@@ -28,13 +31,10 @@
 </template>
 
 <script setup lang="ts">
-    import { onMounted, reactive, ref } from 'vue';
-    import { AxiosHttpClient } from '@/adapter/axios-http-client';
-    import { RemoteHardware } from '@/service/remote-hardware';
-    import { Builder } from '@/builder/builder';
-    import { StrategyFactory } from '@/factory/strategy-factory';
+    import { onMounted, ref } from 'vue';
     import { HARDWARE_TYPES } from '@/entities/hardware-type';
     import { HardwareModel } from '@/entities/hardware-model';
+    import { DesktopOrder } from '@/desktop-order';
     import HardwareItem from './HardwareItem.vue';
     import HardwareSkeleton from './HardwareSkeleton.vue';
 
@@ -44,7 +44,7 @@
 
     interface Props {
         type: HARDWARE_TYPES;
-        builder: Builder;
+        order: Readonly<DesktopOrder>;
     }
 
     const emits = defineEmits<Emits>();
@@ -52,10 +52,6 @@
 
     const items = ref<HardwareModel[]>([]);
     const loading = ref(false);
-    const error = reactive({
-        show: false,
-        message: '',
-    });
 
     function selectHardware(id: number) {
         const hardware = items.value.find((item) => item.id === id);
@@ -63,16 +59,8 @@
     }
 
     onMounted(async () => {
-        const httpClient = new AxiosHttpClient();
-        const factory = new StrategyFactory(props.builder);
-        const strategy = factory.create(props.type);
-        const service = new RemoteHardware(httpClient, strategy);
-
-        try {
-            items.value = await service.loadAll();
-        } catch (err) {
-            error.message = (err as Error).message;
-            error.show = true;
-        }
+        loading.value = true;
+        items.value = await props.order.fetchHardware();
+        loading.value = false;
     });
 </script>

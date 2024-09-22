@@ -384,14 +384,6 @@
         "type": "ram"
     },
     {
-        "id": 282207,
-        "title": "Memória RAM Corsair Vengeance, 32GB (2x16GB), 4800MHz, DDR5, CL40, Preto - CMK32GX5M2A4800C40",
-        "manufacturer": "Corsair",
-        "price": 88887,
-        "image": "https://images.kabum.com.br/produtos/fotos/282207/memoria-corsair-vengeance-32gb-2x16gb-4800hz-ddr5-cl40-preto-cmk32gx5m2a4800c40_1644334909_g.jpg",
-        "type": "ram"
-    },
-    {
         "id": 283713,
         "title": "Processador Intel Core i5-12400, 2.5GHz (4.4GHz Max Turbo), Cache 18MB, LGA 1700 - BX8071512400",
         "manufacturer": "Intel",
@@ -432,35 +424,11 @@
         "type": "ram"
     },
     {
-        "id": 286773,
-        "title": "Memória RAM Corsair Vengeance, 32GB (2x16GB), 5200MHz, DDR5, CL40, para Intel XMP, Preto - CMK32GX5M2B5200C40",
-        "manufacturer": "Corsair",
-        "price": 88522,
-        "image": "https://images.kabum.com.br/produtos/fotos/286773/memoria-corsair-vengeance-32gb-2x16gb-5200mhz-ddr5-cl40-preto-cmk32gx5m2b5200c40_1639586487_g.jpg",
-        "type": "ram"
-    },
-    {
         "id": 286797,
         "title": "Memória RAM Corsair Vengeance, 32GB (2x16GB), 5600MHz, DDR5, CL36, Preto - CMK32GX5M2B5600C36",
         "manufacturer": "Corsair",
         "price": 106666,
         "image": "https://images.kabum.com.br/produtos/fotos/286797/memoria-corsair-vengeance-32gb-2x16gb-5600mhz-ddr5-cl36-preto-cmk32gx5m2b5600c36_1639586432_g.jpg",
-        "type": "ram"
-    },
-    {
-        "id": 286797,
-        "title": "Memória RAM Corsair Vengeance, 32GB (2x16GB), 5600MHz, DDR5, CL36, Preto - CMK32GX5M2B5600C36",
-        "manufacturer": "Corsair",
-        "price": 106666,
-        "image": "https://images.kabum.com.br/produtos/fotos/286797/memoria-corsair-vengeance-32gb-2x16gb-5600mhz-ddr5-cl36-preto-cmk32gx5m2b5600c36_1639586432_g.jpg",
-        "type": "ram"
-    },
-    {
-        "id": 301107,
-        "title": "Memória RAM XPG Lancer, RGB, 32GB (2x16GB), 5200MHz, DDR5, CL38 - AX5U5200C3816G-DCLARBK",
-        "manufacturer": "XPG",
-        "price": 100666,
-        "image": "https://images.kabum.com.br/produtos/fotos/301107/memoria-xpg-lancer-rgb-32gb-2x16gb-5200mhz-ddr5-cl38-ax5u5200c3816g-dclarbk_1642685341_g.jpg",
         "type": "ram"
     },
     {
@@ -744,22 +712,6 @@
         "type": "ram"
     },
     {
-        "id": 382768,
-        "title": "Memória RAM Corsair Dominator Platinum RGB, 32GB (2x 16GB), 5200MHz, DDR5, CL40, Preto - CMT32GX5M2B5200C40",
-        "manufacturer": "Corsair",
-        "price": 127777,
-        "image": "https://images.kabum.com.br/produtos/fotos/382768/memoria-corsair-dominator-platinum-rgb-32gb-5200mhz-ddr5-c40-preto-cmt32gx5m2b5200c40_1665668029_g.jpg",
-        "type": "ram"
-    },
-    {
-        "id": 382771,
-        "title": "Memória RAM Corsair Vengeance RGB, 32GB (2x16GB), 6200MHz, DDR5, CL36, Preto - CMH32GX5M2B6200C36",
-        "manufacturer": "Corsair",
-        "price": 127777,
-        "image": "https://images.kabum.com.br/produtos/fotos/382771/memoria-corsair-vengeance-rgb-32gb-6200mhz-ddr5-c36-preto-cmh32gx5m2b6200c36_1665504836_g.jpg",
-        "type": "ram"
-    },
-    {
         "id": 382771,
         "title": "Memória RAM Corsair Vengeance RGB, 32GB (2x16GB), 6200MHz, DDR5, CL36, Preto - CMH32GX5M2B6200C36",
         "manufacturer": "Corsair",
@@ -830,14 +782,6 @@
         "price": 249999,
         "image": "https://images.kabum.com.br/produtos/fotos/386975/processador-intel-core-i5-13600k-5-1ghz-max-turbo-cache-24mb-14-nucleos-20-threads-lga-1700-video-integrado-bx8071513600k_1664289036_g.jpg",
         "type": "cpu"
-    },
-    {
-        "id": 388095,
-        "title": "Memória RAM Kingston Fury Beast, RGB, 32GB (2x16GB), 6000MHz, DDR5, CL40, Preto - KF560C40BBAK2-32",
-        "manufacturer": "Kingston",
-        "price": 132221,
-        "image": "https://images.kabum.com.br/produtos/fotos/388095/memoria-kingston-fury-beast-rgb-32gb-6000mhz-ddr5-cl40-preto-kf560c40bbak2-32_1666094293_g.jpg",
-        "type": "ram"
     },
     {
         "id": 388095,
@@ -1152,14 +1096,6 @@
         "type": "ram"
     },
     {
-        "id": 422342,
-        "title": "Memória RAM Corsair Vengeance, RGB, 32GB(2X16GB), 5200MHz, DDR5, CL40, Preto - CMH32GX5M2B5200Z40K",
-        "manufacturer": "Corsair",
-        "price": 99999,
-        "image": "https://images.kabum.com.br/produtos/fotos/422342/memoria-corsair-vengeance-rgb-32gb-2x16gb-5200mhz-ddr5-c40-preto-cmh32gx5m2b5200z40k_1677507901_g.jpg",
-        "type": "ram"
-    },
-    {
         "id": 422344,
         "title": "Memória RAM Corsair Vengeance, RGB, 64GB (2X32GB), 5600MHz, DDR5, CL40 Preto - CMH64GX5M2B5600Z40K",
         "manufacturer": "Corsair",
@@ -1278,14 +1214,6 @@
         "price": 257953,
         "image": "https://images.kabum.com.br/produtos/fotos/447411/placa-mae-gigabyte-z790-ud-ax-intel-atx-ddr5-wi-fi-bluetooth-z790-ud-ax-8203_1689183782_g.jpg",
         "type": "motherboard"
-    },
-    {
-        "id": 448306,
-        "title": "Memória RAM Kingston Fury Beast, RGB, 32GB (2x16GB), 6000MHz, DDR5, CL36, Branco - KF560C36BWEAK2-32",
-        "manufacturer": "Kingston",
-        "price": 125112,
-        "image": "https://images.kabum.com.br/produtos/fotos/448306/memoria-kingston-fury-beast-rgb-32gb-2x16gb-6000mhz-ddr5-cl36-branco-kf560c36bweak2-32_1682709633_g.jpg",
-        "type": "ram"
     },
     {
         "id": 448306,
