@@ -1,16 +1,19 @@
-import { AxiosHttpClient } from '@/adapter/axios-http-client';
 import { Hardware } from '@/entities/hardware';
 import { HardwareModel } from '@/entities/hardware-model';
 import { HARDWARE_TYPES } from '@/entities/hardware-type';
 import { DesktopOrder } from '@/entities/desktop-order';
+import { Adapter } from '@/adapter/adapter';
+import { AxiosAdapter } from '@/adapter/axios-adapter';
 
 export abstract class State {
     protected abstract name: HARDWARE_TYPES;
     protected order: DesktopOrder;
     protected hardwareList: HardwareModel[] = [];
+    private client: Adapter;
 
     constructor(order: DesktopOrder) {
         this.order = order;
+        this.client = new AxiosAdapter();
     }
 
     protected abstract filter(hardwareList: Hardware[]): void;
@@ -20,11 +23,9 @@ export abstract class State {
     public abstract prevState(): void;
 
     public async fetchHardware(): Promise<void> {
-        const client = new AxiosHttpClient();
-        const url = 'http://localhost:3000/database/hardware.json';
-
-        const response = await client.get<Hardware[]>({ url });
-
+        const response = await this.client.get<Hardware[]>(
+            'database/hardware.json',
+        );
         const hardwareList = Array.isArray(response.data) ? response.data : [];
 
         this.filter(hardwareList);
