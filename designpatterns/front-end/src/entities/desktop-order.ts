@@ -4,7 +4,7 @@ import { CpuState } from '@/state/cpu-state';
 import { HardwareModel } from './hardware-model';
 import { HARDWARE_TYPES } from './hardware-type';
 import { Strategy } from '@/strategy/strategy';
-import { DefaultStrategy } from '@/strategy/default-strategy';
+import { DiscountStrategyFactory } from '@/factory/discount-strategy-factory';
 
 export class DesktopOrder {
     private state: State;
@@ -14,7 +14,9 @@ export class DesktopOrder {
     constructor() {
         this.state = new CpuState(this);
         this.desktop = new Desktop();
-        this.discountStrategy = new DefaultStrategy();
+
+        const factoryStrategy = new DiscountStrategyFactory();
+        this.discountStrategy = factoryStrategy.getStrategy();
     }
 
     // Manipulação da estratégias de desconto

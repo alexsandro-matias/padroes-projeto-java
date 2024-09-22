@@ -50,11 +50,7 @@
     import { DesktopOrder } from '@/entities/desktop-order';
     import { DISCOUNTS } from '@/entities/discounts';
     import { Desktop } from '@/entities/desktop';
-    import { KitUpgradeStrategy } from '@/strategy/kit-upgrade-strategy';
-    import { AmdStrategy } from '@/strategy/amd-strategy';
-    import { GigabyteAsusStrategy } from '@/strategy/gigabyte-asus-strategy';
-    import { CorsairStrategy } from '@/strategy/corsair-strategy';
-    import { ProgressiveStrategy } from '@/strategy/progressive-strategy';
+    import { DiscountStrategyFactory } from '@/factory/discount-strategy-factory';
     import OrderItem from './OrderItem.vue';
 
     interface Props {
@@ -105,23 +101,13 @@
     });
 
     watch(discount, () => {
-        switch (discount.value) {
-            case DISCOUNTS.CPU_MOTHERBOARD_RAM_10_OFF:
-                props.order.setDiscountStrategy(new KitUpgradeStrategy());
-                break;
-            case DISCOUNTS.CPU_GPU_AMD_20_OFF:
-                props.order.setDiscountStrategy(new AmdStrategy());
-                break;
-            case DISCOUNTS.GIGABYTE_ASUS_15_OFF:
-                props.order.setDiscountStrategy(new GigabyteAsusStrategy());
-                break;
-            case DISCOUNTS.CORSAIR_10_OFF:
-                props.order.setDiscountStrategy(new CorsairStrategy());
-                break;
-            case DISCOUNTS.PROGRESSIVE:
-                props.order.setDiscountStrategy(new ProgressiveStrategy());
-                break;
+        const factory = new DiscountStrategyFactory();
+
+        if (discount.value) {
+            factory.create(discount.value);
         }
+
+        props.order.setDiscountStrategy(factory.getStrategy());
 
         desktop.value = props.order.applyDiscountStrategy();
     });
