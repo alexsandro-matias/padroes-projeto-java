@@ -1,6 +1,6 @@
-import { HARDWARE_TYPES } from '@/entities/hardware-type';
-import { Hardware } from '@/entities/hardware';
-import { HardwareModel } from '@/entities/hardware-model';
+import { HARDWARE_TYPES } from '@/app/entities/hardware-type';
+import { Hardware } from '@/app/entities/hardware';
+import { HardwareModel } from '@/app/entities/hardware-model';
 import { State } from './state';
 import { MotherboardState } from './motherboard-state';
 

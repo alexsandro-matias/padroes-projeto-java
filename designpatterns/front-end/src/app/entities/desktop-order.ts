@@ -1,10 +1,10 @@
-import { State } from '@/state/state';
+import { State } from '@/app/state/state';
+import { CpuState } from '@/app/state/cpu-state';
+import { Strategy } from '@/app/strategy/strategy';
+import { DiscountStrategyFactory } from '@/app/factory/discount-strategy-factory';
 import { Desktop } from './desktop';
-import { CpuState } from '@/state/cpu-state';
 import { HardwareModel } from './hardware-model';
 import { HARDWARE_TYPES } from './hardware-type';
-import { Strategy } from '@/strategy/strategy';
-import { DiscountStrategyFactory } from '@/factory/discount-strategy-factory';
 
 export class DesktopOrder {
     private state: State;

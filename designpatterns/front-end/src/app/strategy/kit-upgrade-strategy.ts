@@ -1,10 +1,10 @@
-import { Desktop } from '@/entities/desktop';
-import { DesktopOrder } from '@/entities/desktop-order';
+import { Desktop } from '@/app/entities/desktop';
 import { Strategy } from './strategy';
-import { HardwareModel } from '@/entities/hardware-model';
-import { MANUFACTURERS } from '@/entities/manufacurers';
+import { DesktopOrder } from '@/app/entities/desktop-order';
+import { HARDWARE_TYPES } from '@/app/entities/hardware-type';
+import { HardwareModel } from '@/app/entities/hardware-model';
 
-export class CorsairStrategy implements Strategy {
+export class KitUpgradeStrategy implements Strategy {
     calculate(order: DesktopOrder): Desktop {
         const desktop = order.getDesktop();
         const discountDesktop = new Desktop();
@@ -20,7 +20,11 @@ export class CorsairStrategy implements Strategy {
                     price: hardware.price,
                 };
 
-                if (hardware.manufacturer === MANUFACTURERS.CORSAIR) {
+                if (
+                    hardware.type === HARDWARE_TYPES.CPU ||
+                    hardware.type === HARDWARE_TYPES.MOTHERBOARD ||
+                    hardware.type === HARDWARE_TYPES.RAM
+                ) {
                     rawHardware.price = hardware.price * 0.9; // 10% OFF
                 }
 

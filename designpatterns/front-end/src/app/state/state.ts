@@ -1,9 +1,9 @@
-import { Hardware } from '@/entities/hardware';
-import { HardwareModel } from '@/entities/hardware-model';
-import { HARDWARE_TYPES } from '@/entities/hardware-type';
-import { DesktopOrder } from '@/entities/desktop-order';
-import { Adapter } from '@/adapter/adapter';
-import { AxiosAdapter } from '@/adapter/axios-adapter';
+import { Hardware } from '@/app/entities/hardware';
+import { HardwareModel } from '@/app/entities/hardware-model';
+import { HARDWARE_TYPES } from '@/app/entities/hardware-type';
+import { DesktopOrder } from '@/app/entities/desktop-order';
+import { Adapter } from '@/app/adapter/adapter';
+import { AxiosAdapter } from '@/app/adapter/axios-adapter';
 
 export abstract class State {
     protected abstract name: HARDWARE_TYPES;

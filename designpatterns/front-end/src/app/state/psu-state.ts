@@ -1,6 +1,6 @@
-import { HARDWARE_TYPES } from '@/entities/hardware-type';
-import { Hardware } from '@/entities/hardware';
-import { HardwareModel } from '@/entities/hardware-model';
+import { HARDWARE_TYPES } from '@/app/entities/hardware-type';
+import { Hardware } from '@/app/entities/hardware';
+import { HardwareModel } from '@/app/entities/hardware-model';
 import { State } from './state';
 import { StorageState } from './storage-state';
 import { CaseState } from './case-state';
@@ -27,8 +27,10 @@ export class PsuState extends State {
 
     public filter(hardwareList: Hardware[]): void {
         const desktopGpu = this.order.getDesktop().getGpu();
-        let filteredHardware: Hardware[] = hardwareList.filter(hardware => hardware.type === HARDWARE_TYPES.PSU);
-        
+        let filteredHardware: Hardware[] = hardwareList.filter(
+            (hardware) => hardware.type === HARDWARE_TYPES.PSU,
+        );
+
         if (desktopGpu) {
             const gpuVersion = Object.keys(this.psuExcludes).find((gpu) =>
                 desktopGpu.title.includes(gpu),
@@ -36,11 +38,15 @@ export class PsuState extends State {
             const excludes = gpuVersion ? this.psuExcludes[gpuVersion] : [];
 
             filteredHardware = filteredHardware.filter((item) => {
-                return !excludes.some((exclude) => item.title.includes(exclude));
-            })
+                return !excludes.some((exclude) =>
+                    item.title.includes(exclude),
+                );
+            });
         }
 
-        this.hardwareList = filteredHardware.map((hardware) => new HardwareModel(hardware));
+        this.hardwareList = filteredHardware.map(
+            (hardware) => new HardwareModel(hardware),
+        );
     }
 
     public nextState(): void {

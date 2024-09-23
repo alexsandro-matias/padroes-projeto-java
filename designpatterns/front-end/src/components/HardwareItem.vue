@@ -40,7 +40,7 @@
 </template>
 
 <script setup lang="ts">
-    import { HardwareModel } from '@/entities/hardware-model';
+    import { HardwareModel } from '@/app/entities/hardware-model';
 
     type Emits = {
         (e: 'on-select', value: number): void;

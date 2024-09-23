@@ -1,5 +1,5 @@
-import { Desktop } from '@/entities/desktop';
-import { DesktopOrder } from '@/entities/desktop-order';
+import { Desktop } from '@/app/entities/desktop';
+import { DesktopOrder } from '@/app/entities/desktop-order';
 import { Strategy } from './strategy';
 
 export class DefaultStrategy implements Strategy {

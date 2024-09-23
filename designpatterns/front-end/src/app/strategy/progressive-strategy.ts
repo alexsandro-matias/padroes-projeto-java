@@ -1,8 +1,8 @@
-import { Desktop } from '@/entities/desktop';
-import { DesktopOrder } from '@/entities/desktop-order';
+import { Desktop } from '@/app/entities/desktop';
+import { DesktopOrder } from '@/app/entities/desktop-order';
 import { Strategy } from './strategy';
-import { Hardware } from '@/entities/hardware';
-import { HardwareModel } from '@/entities/hardware-model';
+import { Hardware } from '@/app/entities/hardware';
+import { HardwareModel } from '@/app/entities/hardware-model';
 
 export class ProgressiveStrategy implements Strategy {
     calculate(order: DesktopOrder): Desktop {

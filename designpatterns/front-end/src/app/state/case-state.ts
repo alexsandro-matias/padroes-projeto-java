@@ -1,7 +1,7 @@
-import { HARDWARE_TYPES } from '@/entities/hardware-type';
+import { HARDWARE_TYPES } from '@/app/entities/hardware-type';
 import { State } from './state';
-import { Hardware } from '@/entities/hardware';
-import { HardwareModel } from '@/entities/hardware-model';
+import { Hardware } from '@/app/entities/hardware';
+import { HardwareModel } from '@/app/entities/hardware-model';
 import { PsuState } from './psu-state';
 
 export class CaseState extends State {
@@ -15,7 +15,6 @@ export class CaseState extends State {
 
     public nextState(): void {
         console.log('CaseState: No next state');
-        return;
     }
 
     public prevState(): void {

@@ -46,9 +46,9 @@
 
 <script setup lang="ts">
     import { computed, onMounted, ref } from 'vue';
-    import { HARDWARE_TYPES } from '@/entities/hardware-type';
-    import { HardwareModel } from '@/entities/hardware-model';
-    import { DesktopOrder } from '@/entities/desktop-order';
+    import { HARDWARE_TYPES } from '@/app/entities/hardware-type';
+    import { HardwareModel } from '@/app/entities/hardware-model';
+    import { DesktopOrder } from '@/app/entities/desktop-order';
     import HardwareItem from './HardwareItem.vue';
     import HardwareSkeleton from './HardwareSkeleton.vue';
 
@@ -75,8 +75,12 @@
 
     const filteredItems = computed(() => {
         return items.value.filter((item) => {
-            const includeInTitle = item.title.toLowerCase().includes(search.value.toLowerCase())
-            const includesInManufacturer = item.manufacturer.toLowerCase().includes(search.value.toLowerCase())
+            const includeInTitle = item.title
+                .toLowerCase()
+                .includes(search.value.toLowerCase());
+            const includesInManufacturer = item.manufacturer
+                .toLowerCase()
+                .includes(search.value.toLowerCase());
 
             return includeInTitle || includesInManufacturer;
         });

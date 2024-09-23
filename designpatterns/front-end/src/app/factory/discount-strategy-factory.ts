@@ -1,11 +1,11 @@
-import { DISCOUNTS } from '@/entities/discounts';
+import { DISCOUNTS } from '@/app/entities/discounts';
 import { StrategyFactory } from './strategy-factory';
-import { ProgressiveStrategy } from '@/strategy/progressive-strategy';
-import { Strategy } from '@/strategy/strategy';
-import { GigabyteAsusStrategy } from '@/strategy/gigabyte-asus-strategy';
-import { KitUpgradeStrategy } from '@/strategy/kit-upgrade-strategy';
-import { AmdStrategy } from '@/strategy/amd-strategy';
-import { CorsairStrategy } from '@/strategy/corsair-strategy';
+import { ProgressiveStrategy } from '@/app/strategy/progressive-strategy';
+import { Strategy } from '@/app/strategy/strategy';
+import { GigabyteAsusStrategy } from '@/app/strategy/gigabyte-asus-strategy';
+import { KitUpgradeStrategy } from '@/app/strategy/kit-upgrade-strategy';
+import { AmdStrategy } from '@/app/strategy/amd-strategy';
+import { CorsairStrategy } from '@/app/strategy/corsair-strategy';
 
 export class DiscountStrategyFactory extends StrategyFactory {
     create(type: DISCOUNTS): void {

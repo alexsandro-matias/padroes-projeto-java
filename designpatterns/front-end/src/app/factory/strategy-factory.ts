@@ -1,6 +1,6 @@
-import { DISCOUNTS } from '@/entities/discounts';
-import { DefaultStrategy } from '@/strategy/default-strategy';
-import { Strategy } from '@/strategy/strategy';
+import { DISCOUNTS } from '@/app/entities/discounts';
+import { DefaultStrategy } from '@/app/strategy/default-strategy';
+import { Strategy } from '@/app/strategy/strategy';
 
 export abstract class StrategyFactory {
     protected strategy: Strategy = new DefaultStrategy();

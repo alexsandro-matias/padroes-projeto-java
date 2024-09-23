@@ -1,8 +1,8 @@
-import { DesktopOrder } from '@/entities/desktop-order';
+import { DesktopOrder } from '@/app/entities/desktop-order';
 import { Strategy } from './strategy';
-import { Desktop } from '@/entities/desktop';
-import { MANUFACTURERS } from '@/entities/manufacurers';
-import { HardwareModel } from '@/entities/hardware-model';
+import { Desktop } from '@/app/entities/desktop';
+import { MANUFACTURERS } from '@/app/entities/manufacurers';
+import { HardwareModel } from '@/app/entities/hardware-model';
 
 export class GigabyteAsusStrategy implements Strategy {
     calculate(order: DesktopOrder): Desktop {

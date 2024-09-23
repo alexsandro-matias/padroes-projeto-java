@@ -47,10 +47,10 @@
 
 <script setup lang="ts">
     import { computed, ref, watch } from 'vue';
-    import { DesktopOrder } from '@/entities/desktop-order';
-    import { DISCOUNTS } from '@/entities/discounts';
-    import { Desktop } from '@/entities/desktop';
-    import { DiscountStrategyFactory } from '@/factory/discount-strategy-factory';
+    import { DesktopOrder } from '@/app/entities/desktop-order';
+    import { DISCOUNTS } from '@/app/entities/discounts';
+    import { Desktop } from '@/app/entities/desktop';
+    import { DiscountStrategyFactory } from '@/app/factory/discount-strategy-factory';
     import OrderItem from './OrderItem.vue';
 
     interface Props {

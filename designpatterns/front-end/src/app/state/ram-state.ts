@@ -1,8 +1,8 @@
-import { Hardware } from '@/entities/hardware';
-import { HARDWARE_TYPES } from '@/entities/hardware-type';
-import { HardwareModel } from '@/entities/hardware-model';
-import { MANUFACTURERS } from '@/entities/manufacurers';
-import { Desktop } from '@/entities/desktop';
+import { Hardware } from '@/app/entities/hardware';
+import { HARDWARE_TYPES } from '@/app/entities/hardware-type';
+import { HardwareModel } from '@/app/entities/hardware-model';
+import { MANUFACTURERS } from '@/app/entities/manufacurers';
+import { Desktop } from '@/app/entities/desktop';
 import { State } from './state';
 import { GpuState } from './gpu-state';
 import { MotherboardState } from './motherboard-state';

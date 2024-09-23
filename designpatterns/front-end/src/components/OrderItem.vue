@@ -27,8 +27,8 @@
 </template>
 
 <script setup lang="ts">
-    import { Desktop } from '@/entities/desktop';
-    import { HardwareModel } from '@/entities/hardware-model';
+    import { Desktop } from '@/app/entities/desktop';
+    import { HardwareModel } from '@/app/entities/hardware-model';
     import { computed } from 'vue';
 
     interface Props {

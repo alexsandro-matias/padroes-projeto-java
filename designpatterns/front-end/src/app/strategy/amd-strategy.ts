@@ -1,9 +1,9 @@
-import { Desktop } from '@/entities/desktop';
+import { Desktop } from '@/app/entities/desktop';
 import { Strategy } from './strategy';
-import { DesktopOrder } from '@/entities/desktop-order';
-import { HardwareModel } from '@/entities/hardware-model';
-import { HARDWARE_TYPES } from '@/entities/hardware-type';
-import { MANUFACTURERS } from '@/entities/manufacurers';
+import { DesktopOrder } from '@/app/entities/desktop-order';
+import { HardwareModel } from '@/app/entities/hardware-model';
+import { HARDWARE_TYPES } from '@/app/entities/hardware-type';
+import { MANUFACTURERS } from '@/app/entities/manufacurers';
 
 export class AmdStrategy implements Strategy {
     calculate(order: DesktopOrder): Desktop {

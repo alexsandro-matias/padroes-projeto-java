@@ -79,11 +79,11 @@
 
 <script setup lang="ts">
     import { ref, reactive } from 'vue';
-    import { HARDWARE_TYPES } from './entities/hardware-type';
-    import { Step } from './entities/step';
-    import { HardwareModel } from './entities/hardware-model';
-    import { DesktopOrder } from './entities/desktop-order';
-    import HardwareList from './components/HardwareList.vue';
+    import { HARDWARE_TYPES } from '@/app/entities/hardware-type';
+    import { Step } from '@/app/entities/step';
+    import { HardwareModel } from '@/app/entities/hardware-model';
+    import { DesktopOrder } from '@/app/entities/desktop-order';
+    import HardwareList from '@/components/HardwareList.vue';
 
     const order = reactive(new DesktopOrder());
     const dialog = ref(false);
