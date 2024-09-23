@@ -5,6 +5,7 @@ import { DiscountStrategyFactory } from '@/app/factory/discount-strategy-factory
 import { Desktop } from './desktop';
 import { HardwareModel } from './hardware-model';
 import { HARDWARE_TYPES } from './hardware-type';
+import { DISCOUNTS } from './discounts';
 
 export class DesktopOrder {
     private state: State;
@@ -27,6 +28,10 @@ export class DesktopOrder {
 
     public applyDiscountStrategy(): Desktop {
         return this.discountStrategy.calculate(this);
+    }
+
+    public getStrategyName(): DISCOUNTS | undefined {
+        return this.discountStrategy.name;
     }
 
     // Manipulação do computador

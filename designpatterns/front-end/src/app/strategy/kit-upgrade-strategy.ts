@@ -1,10 +1,13 @@
 import { Desktop } from '@/app/entities/desktop';
-import { Strategy } from './strategy';
 import { DesktopOrder } from '@/app/entities/desktop-order';
 import { HARDWARE_TYPES } from '@/app/entities/hardware-type';
 import { HardwareModel } from '@/app/entities/hardware-model';
+import { DISCOUNTS } from '@/app/entities/discounts';
+import { Strategy } from './strategy';
 
 export class KitUpgradeStrategy implements Strategy {
+    name: DISCOUNTS = DISCOUNTS.CPU_MOTHERBOARD_RAM_10_OFF;
+
     calculate(order: DesktopOrder): Desktop {
         const desktop = order.getDesktop();
         const discountDesktop = new Desktop();

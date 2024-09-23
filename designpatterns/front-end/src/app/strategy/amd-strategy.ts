@@ -1,11 +1,14 @@
 import { Desktop } from '@/app/entities/desktop';
-import { Strategy } from './strategy';
 import { DesktopOrder } from '@/app/entities/desktop-order';
 import { HardwareModel } from '@/app/entities/hardware-model';
 import { HARDWARE_TYPES } from '@/app/entities/hardware-type';
 import { MANUFACTURERS } from '@/app/entities/manufacurers';
+import { DISCOUNTS } from '@/app/entities/discounts';
+import { Strategy } from './strategy';
 
 export class AmdStrategy implements Strategy {
+    public name = DISCOUNTS.CPU_GPU_AMD_20_OFF;
+
     calculate(order: DesktopOrder): Desktop {
         const desktop = order.getDesktop();
         const discountDesktop = new Desktop();

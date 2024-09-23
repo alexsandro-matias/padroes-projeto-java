@@ -82,7 +82,7 @@
 
     const props = defineProps<Props>();
 
-    const discount = ref<DISCOUNTS>();
+    const discount = ref<DISCOUNTS | undefined>(props.order.getStrategyName());
     const desktop = ref<Desktop>(props.order.applyDiscountStrategy());
 
     const hasDiscount = computed(() => {
