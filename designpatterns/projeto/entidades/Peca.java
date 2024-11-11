@@ -10,7 +10,6 @@ public abstract class Peca {
     private String marca;
     private String descricao;
     private String tipo;
-    // enum ??????
 
 
     abstract long getValor();
